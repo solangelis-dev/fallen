@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameBoost - Premium Gaming Services</title>
+    <meta name="description" content="Premium gaming services for Robux, Accounts, Cheats, and Items">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0118 0%, #1a0d2e 50%, #2d1b4e 100%);
+            color: white;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            padding: 2rem 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #9D4EDD;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #9D4EDD, #C77DFF);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 8px 32px rgba(157, 78, 221, 0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, #C77DFF 50%, #9D4EDD 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(157, 78, 221, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover::before,
+        .service-card:focus::before {
+            left: 100%;
+        }
+
+        .service-card:hover,
+        .service-card:focus {
+            transform: translateY(-10px);
+            border-color: rgba(157, 78, 221, 0.6);
+            box-shadow: 0 20px 60px rgba(157, 78, 221, 0.2);
+            background: rgba(157, 78, 221, 0.15);
+        }
+
+        .service-card:active {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #9D4EDD, #C77DFF);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 15px 40px rgba(157, 78, 221, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon,
+        .service-card:focus .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 20px 50px rgba(157, 78, 221, 0.4);
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #FFFFFF, #C77DFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 4rem;
+        }
+
+        /* Loading animation */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .service-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="loading">
+    <!-- Header -->
+    <header class="header">
+        <div class="logo" onclick="goHome()">
+            <div class="logo-icon">🎮</div>
+            GAMEBOOST
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Premium Gaming Services</h1>
+            <p>Get the best gaming experience with our premium services</p>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="services-grid">
+            <div class="service-card" onclick="openService('robux')" tabindex="0" role="button" aria-label="Open Robux service">
+                <div class="service-icon">💎</div>
+                <h3 class="service-title">Robux</h3>
+                <p class="service-description">Get premium Robux packages for your Roblox account with instant delivery</p>
+            </div>
+
+            <div class="service-card" onclick="openService('accounts')" tabindex="0" role="button" aria-label="Open Accounts service">
+                <div class="service-icon">👤</div>
+                <h3 class="service-title">Accounts</h3>
+                <p class="service-description">High-quality gaming accounts with premium features and benefits</p>
+            </div>
+
+            <div class="service-card" onclick="openService('cheats')" tabindex="0" role="button" aria-label="Open Cheats service">
+                <div class="service-icon">⚡</div>
+                <h3 class="service-title">Cheats</h3>
+                <p class="service-description">Advanced gaming tools and cheats for enhanced gameplay experience</p>
+            </div>
+
+            <div class="service-card" onclick="openService('items')" tabindex="0" role="button" aria-label="Open Items service">
+                <div class="service-icon">🎯</div>
+                <h3 class="service-title">Items</h3>
+                <p class="service-description">Rare and exclusive in-game items for your favorite games</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 GameBoost. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Service click handlers with visual feedback
+        function openService(serviceName) {
+            // Find the clicked card
+            const clickedCard = event.currentTarget;
+            
+            // Add visual feedback
+            clickedCard.style.transform = 'scale(0.98) translateY(-5px)';
+            
+            setTimeout(() => {
+                clickedCard.style.transform = '';
+                // Navigate to service (placeholder)
+                alert(`🎮 Opening ${serviceName.toUpperCase()} service!\n\nThis would normally navigate to the ${serviceName} page with all available options.`);
+            }, 150);
+        }
+
+        // Logo click handler
+        function goHome() {
+            const logo = document.querySelector('.logo');
+            logo.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                logo.style.transform = '';
+                alert('🏠 Already on home page!');
+            }, 150);
+        }
+
+        // Keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            const cards = document.querySelectorAll('.service-card');
+            const currentIndex = Array.from(cards).findIndex(card => card === document.activeElement);
+
+            switch(e.key) {
+                case 'ArrowRight':
+                case 'ArrowDown':
+                    e.preventDefault();
+                    const nextIndex = (currentIndex + 1) % cards.length;
+                    cards[nextIndex].focus();
+                    break;
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                    e.preventDefault();
+                    const prevIndex = currentIndex <= 0 ? cards.length - 1 : currentIndex - 1;
+                    cards[prevIndex].focus();
+                    break;
+                case 'Enter':
+                case ' ':
+                    if (currentIndex >= 0) {
+                        e.preventDefault();
+                        cards[currentIndex].click();
+                    }
+                    break;
+            }
+        });
+
+        // Add click listeners to service cards for better interaction
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.click();
+                }
+            });
+        });
+
+        // Initialize page with fade-in animation
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Add smooth scroll behavior
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Add some interactive effects on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate cards in sequence
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150 + 500);
+            });
+
+            console.log('🎮 GameBoost loaded successfully!');
+        });
+
+        // Add hover sound effect (optional)
+        document.querySelectorAll('.service-card, .logo').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                // Could add subtle audio feedback here
+                element.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+        });
+    </script>
+</body>
+</html>
