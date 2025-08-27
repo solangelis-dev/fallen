@@ -301,8 +301,14 @@
             
             setTimeout(() => {
                 clickedCard.style.transform = '';
-                // Navigate to service (placeholder)
-                alert(`🎮 Opening ${serviceName.toUpperCase()} service!\n\nThis would normally navigate to the ${serviceName} page with all available options.`);
+                
+                // Navigate to specific service pages
+                if (serviceName === 'robux') {
+                    window.open('robux.html', '_blank');
+                } else {
+                    // Placeholder for other services
+                    alert(`🎮 Opening ${serviceName.toUpperCase()} service!\n\nThis would normally navigate to the ${serviceName} page with all available options.`);
+                }
             }, 150);
         }
 
