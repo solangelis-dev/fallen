@@ -3,88 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eon KeyMaster - License Management System</title>
-    <meta name="description" content="Professional license key management and generation system">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    <title>EON Cheats - Reseller Panel</title>
+    <meta name="description" content="Powered By EON AUTH Services">
+    <meta name="author" content="EON AUTH">
+    
+    <meta property="og:title" content="EON Cheats - Reseller Panel">
+    <meta property="og:description" content="Powered By EON AUTH Services">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#22c55e',
+                        secondary: '#16a34a',
+                        accent: '#15803d',
+                        dark: '#0f172a',
+                        'dark-lighter': '#1e293b',
+                        'dark-card': '#334155',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    }
+                }
+            }
         }
-
-        :root {
-            --primary: 120, 100%, 25%;
-            --primary-light: 120, 60%, 45%;
-            --primary-dark: 120, 100%, 15%;
-            --secondary: 120, 30%, 95%;
-            --accent: 140, 80%, 35%;
-            --background: 0, 0%, 100%;
-            --surface: 120, 20%, 98%;
-            --text: 120, 100%, 10%;
-            --text-muted: 120, 15%, 40%;
-            --border: 120, 20%, 90%;
-            --success: 140, 70%, 45%;
-            --warning: 45, 100%, 55%;
-            --error: 0, 70%, 55%;
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: hsl(var(--background));
-            color: hsl(var(--text));
-            line-height: 1.6;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+            color: #f8fafc;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
-        .header {
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-            color: white;
-            padding: 1rem 0;
-            margin-bottom: 2rem;
+        .gradient-text {
+            background: linear-gradient(135deg, #22c55e, #16a34a, #15803d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border: none;
             border-radius: 12px;
-        }
-
-        .header h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .nav button {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 24px;
             color: white;
-            padding: 0.5rem 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px 24px;
+            color: #f8fafc;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .btn-green {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border: none;
+            border-radius: 12px;
+            padding: 8px 16px;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(34, 197, 94, 0.3);
+        }
+
+        .btn-green:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.5);
+        }
+
+        .input-field {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: #f8fafc;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #22c55e;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .input-field::placeholder {
+            color: #94a3b8;
+        }
+
+        .select-field {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: #f8fafc;
+            transition: all 0.3s ease;
+        }
+
+        .select-field:focus {
+            outline: none;
+            border-color: #22c55e;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+        }
+
+        .select-field option {
+            background: #1e293b;
+            color: #f8fafc;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-unused {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .status-active {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .status-expired {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .key-display {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 12px;
             border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .nav button:hover,
-        .nav button.active {
-            background: rgba(255, 255, 255, 0.3);
+        .key-display:hover {
+            background: rgba(0, 0, 0, 0.5);
+            border-color: #22c55e;
+        }
+
+        .stats-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stats-card:hover {
+            background: rgba(255, 255, 255, 0.05);
             transform: translateY(-2px);
         }
 
-        .section {
-            display: none;
-            animation: fadeIn 0.3s ease;
+        .floating-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
         }
 
-        .section.active {
-            display: block;
+        .orb-1 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #15803d, #22c55e);
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .orb-3 {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #16a34a, #15803d);
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
         }
 
         @keyframes fadeIn {
@@ -92,851 +254,714 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .card {
-            background: hsl(var(--surface));
-            border: 1px solid hsl(var(--border));
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(34, 197, 94, 0.5); }
+            to { box-shadow: 0 0 30px rgba(34, 197, 94, 0.8); }
+        }
+
+        .server-status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 12px 16px;
             border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        .card h2 {
-            color: hsl(var(--primary));
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: hsl(var(--text));
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid hsl(var(--border));
-            border-radius: 8px;
-            background: white;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: hsl(var(--primary));
-            box-shadow: 0 0 0 3px hsla(var(--primary), 0.1);
-        }
-
-        .btn {
-            background: hsl(var(--primary));
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             transition: all 0.3s ease;
-            display: inline-block;
-            text-decoration: none;
         }
 
-        .btn:hover {
-            background: hsl(var(--primary-dark));
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px hsla(var(--primary), 0.3);
+        .server-connected {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
         }
 
-        .btn-secondary {
-            background: hsl(var(--text-muted));
+        .server-offline {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
         }
 
-        .btn-secondary:hover {
-            background: hsl(var(--text));
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
         }
 
-        .btn-danger {
-            background: hsl(var(--error));
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
 
-        .btn-danger:hover {
-            background: hsl(0, 70%, 45%);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-            color: white;
-            padding: 1.5rem;
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 16px 20px;
             border-radius: 12px;
+            font-weight: 500;
+            transform: translateX(400px);
+            transition: all 0.3s ease;
+            background: rgba(34, 197, 94, 0.9);
+            color: white;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.error {
+            background: rgba(239, 68, 68, 0.9);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 8px;
             text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+        .nav-tab.active {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
         }
 
-        .stat-label {
-            opacity: 0.9;
-            font-size: 0.9rem;
+        .nav-tab:not(.active) {
+            color: #94a3b8;
         }
 
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
+        .nav-tab:not(.active):hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #f8fafc;
         }
 
-        .table th,
-        .table td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid hsl(var(--border));
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
         }
 
-        .table th {
-            background: hsl(var(--surface));
-            font-weight: 600;
-            color: hsl(var(--primary));
+        .tab-content.active {
+            display: block;
         }
 
-        .table tr:hover {
-            background: hsl(var(--surface));
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
         }
 
-        .status {
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
         }
 
-        .status-active {
-            background: hsla(var(--success), 0.1);
-            color: hsl(var(--success));
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .status-expired {
-            background: hsla(var(--error), 0.1);
-            color: hsl(var(--error));
-        }
-
-        .status-pending {
-            background: hsla(var(--warning), 0.1);
-            color: hsl(var(--warning));
-        }
-
-        .login-container {
+        .icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
         }
 
-        .login-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
+        .bulk-keys-container {
+            max-height: 400px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
         }
 
-        .login-card h1 {
-            text-align: center;
-            color: hsl(var(--primary));
-            margin-bottom: 2rem;
-            font-size: 2rem;
-        }
-
-        .alert {
-            padding: 0.75rem;
+        .bulk-key-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .alert-success {
-            background: hsla(var(--success), 0.1);
-            color: hsl(var(--success));
-            border: 1px solid hsla(var(--success), 0.2);
-        }
-
-        .alert-error {
-            background: hsla(var(--error), 0.1);
-            color: hsl(var(--error));
-            border: 1px solid hsla(var(--error), 0.2);
-        }
-
-        .key-display {
-            background: hsl(var(--surface));
-            padding: 1rem;
-            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 8px;
             font-family: 'Courier New', monospace;
-            font-size: 1.1rem;
-            margin: 1rem 0;
-            border: 2px dashed hsl(var(--primary));
-            text-align: center;
-            font-weight: 600;
-            color: hsl(var(--primary));
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .hidden {
-            display: none !important;
+        .key-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .compact-key-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
         }
 
-        @media (max-width: 768px) {
-            .nav {
-                flex-wrap: wrap;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .table {
-                font-size: 0.9rem;
-            }
+        .compact-key-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #22c55e;
+        }
+
+        /* New style to center the info */
+        .key-info-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1; /* Pushes the actions to the right */
+            gap: 1.5rem; /* Add some space between the items */
         }
     </style>
 </head>
 <body>
-    <!-- Login Screen -->
-    <div id="loginScreen" class="login-container">
-        <div class="login-card">
-            <h1>🔐 Eon KeyMaster</h1>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" required value="admin">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" required value="admin123">
-                </div>
-                <button type="submit" class="btn" style="width: 100%;">Sign In</button>
-            </form>
-            <div id="loginError" class="alert alert-error hidden">Invalid credentials</div>
-        </div>
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="floating-orb orb-3"></div>
+
+    <div id="toast" class="toast">
+        <span id="toastMessage"></span>
     </div>
 
-    <!-- Main Application -->
-    <div id="mainApp" class="hidden">
-        <div class="container">
-            <header class="header">
-                <h1>🔐 Eon KeyMaster</h1>
-                <nav class="nav">
-                    <button class="nav-btn active" data-section="dashboard">Dashboard</button>
-                    <button class="nav-btn" data-section="generate">Generate License</button>
-                    <button class="nav-btn" data-section="verify">Verify Key</button>
-                    <button class="nav-btn" data-section="manage">Manage Licenses</button>
-                    <button class="nav-btn" data-section="users">Users</button>
-                    <button onclick="logout()" class="nav-btn">Logout</button>
-                </nav>
-            </header>
+    <div id="serverStatus" class="server-status server-connected">
+        <div class="status-dot bg-green-500"></div>
+        <span>Server Connected</span>
+    </div>
 
-            <!-- Dashboard Section -->
-            <div id="dashboard" class="section active">
-                <div class="stats">
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalLicenses">0</div>
-                        <div class="stat-label">Total Licenses</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="activeLicenses">0</div>
-                        <div class="stat-label">Active Licenses</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="expiredLicenses">0</div>
-                        <div class="stat-label">Expired Licenses</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="totalUsers">0</div>
-                        <div class="stat-label">Registered Users</div>
-                    </div>
-                </div>
+    <div class="container mx-auto px-6 py-8 relative z-10">
+        <header class="text-center mb-12">
+            <h1 class="text-6xl font-bold gradient-text mb-4 animate-fade-in glow">Eon Cheats</h1>
+            <p class="text-xl text-slate-300 mb-8 animate-slide-up">Reseller Panel</p>
+        </header>
 
-                <div class="grid">
-                    <div class="card">
-                        <h2>Recent Activity</h2>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Action</th>
-                                    <th>User</th>
-                                    <th>Time</th>
-                                </tr>
-                            </thead>
-                            <tbody id="recentActivity">
-                                <tr>
-                                    <td>License Generated</td>
-                                    <td>john.doe@example.com</td>
-                                    <td>2 minutes ago</td>
-                                </tr>
-                                <tr>
-                                    <td>License Verified</td>
-                                    <td>jane.smith@example.com</td>
-                                    <td>5 minutes ago</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="card">
-                        <h2>Quick Actions</h2>
-                        <button class="btn" onclick="showSection('generate')" style="width: 100%; margin-bottom: 1rem;">Generate New License</button>
-                        <button class="btn btn-secondary" onclick="showSection('verify')" style="width: 100%; margin-bottom: 1rem;">Verify License Key</button>
-                        <button class="btn btn-secondary" onclick="showSection('manage')" style="width: 100%;">Manage All Licenses</button>
-                    </div>
-                </div>
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="switchTab('generate')">
+                <i class="fas fa-key mr-2"></i>Generate Keys
             </div>
+            <div class="nav-tab" onclick="switchTab('manage')">
+                <i class="fas fa-cogs mr-2"></i>Manage
+            </div>
+            <div class="nav-tab" onclick="switchTab('addons')">
+                <i class="fas fa-tools mr-2"></i>Addons
+            </div>
+        </div>
 
-            <!-- Generate License Section -->
-            <div id="generate" class="section">
-                <div class="card">
-                    <h2>Generate New License</h2>
-                    <form id="generateForm">
-                        <div class="grid">
-                            <div>
-                                <div class="form-group">
-                                    <label for="customerEmail">Customer Email</label>
-                                    <input type="email" id="customerEmail" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="customerName">Customer Name</label>
-                                    <input type="text" id="customerName" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="licenseType">License Type</label>
-                                    <select id="licenseType" required>
-                                        <option value="">Select Type</option>
-                                        <option value="basic">Basic (1 Year)</option>
-                                        <option value="professional">Professional (2 Years)</option>
-                                        <option value="enterprise">Enterprise (5 Years)</option>
-                                        <option value="lifetime">Lifetime</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="form-group">
-                                    <label for="expirationDate">Expiration Date</label>
-                                    <input type="date" id="expirationDate">
-                                </div>
-                                <div class="form-group">
-                                    <label for="maxDevices">Max Devices</label>
-                                    <input type="number" id="maxDevices" min="1" max="100" value="1">
-                                </div>
-                                <div class="form-group">
-                                    <label for="features">Enabled Features</label>
-                                    <textarea id="features" rows="3" placeholder="Enter comma-separated features"></textarea>
-                                </div>
-                            </div>
+        <div id="generate-tab" class="tab-content active">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon-wrapper mb-4">
+                        <i class="fas fa-plus text-white"></i>
+                    </div>
+                    <h2 class="text-2xl font-semibold mb-6">Generate Single Key</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-slate-300">Duration</label>
+                            <select id="duration" class="w-full select-field">
+                                <option value="1">1 Day</option>
+                                <option value="3">3 Days</option>
+                                <option value="7">1 Week</option>
+                                <option value="30">1 Month</option>
+                                <option value="90">3 Months</option>
+                                <option value="365">1 Year</option>
+                            </select>
                         </div>
-                        <button type="submit" class="btn">Generate License Key</button>
-                    </form>
-                    
-                    <div id="generatedKey" class="hidden">
-                        <h3 style="color: hsl(var(--success)); margin-top: 2rem;">License Generated Successfully!</h3>
-                        <div class="key-display" id="keyDisplay"></div>
-                        <button class="btn btn-secondary" onclick="copyKey()">Copy License Key</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Verify Key Section -->
-            <div id="verify" class="section">
-                <div class="card">
-                    <h2>Verify License Key</h2>
-                    <form id="verifyForm">
-                        <div class="form-group">
-                            <label for="verifyKey">License Key</label>
-                            <input type="text" id="verifyKey" placeholder="Enter license key to verify" required>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-slate-300">Key Prefix (Optional)</label>
+                            <input type="text" id="prefix" placeholder="e.g., PREMIUM, VIP, TRIAL" class="w-full input-field" maxlength="10">
                         </div>
-                        <button type="submit" class="btn">Verify License</button>
-                    </form>
-                    
-                    <div id="verifyResult" class="hidden">
-                        <div id="verifyAlert"></div>
-                        <div id="verifyDetails"></div>
+                        <button id="generateBtn" class="w-full btn-primary">
+                            <i class="fas fa-magic mr-2"></i>Generate License Key
+                        </button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Manage Licenses Section -->
-            <div id="manage" class="section">
-                <div class="card">
-                    <h2>License Management</h2>
-                    <div style="margin-bottom: 1rem;">
-                        <input type="text" id="searchLicenses" placeholder="Search licenses..." style="width: 300px; margin-right: 1rem;">
-                        <button class="btn btn-secondary" onclick="searchLicenses()">Search</button>
-                        <button class="btn" onclick="exportLicenses()" style="float: right;">Export Data</button>
+                <div class="feature-card">
+                    <div class="icon-wrapper mb-4">
+                        <i class="fas fa-edit text-white"></i>
                     </div>
-                    
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>License Key</th>
-                                <th>Customer</th>
-                                <th>Type</th>
-                                <th>Status</th>
-                                <th>Expires</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="licensesTable">
-                        </tbody>
-                    </table>
+                    <h2 class="text-2xl font-semibold mb-6">Custom Key Generation</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-slate-300">Custom Key</label>
+                            <input type="text" id="customKey" placeholder="e.g., IMPACT-F5CX-65D" class="w-full input-field" maxlength="50">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-slate-300">Duration</label>
+                            <select id="customDuration" class="w-full select-field">
+                                <option value="1">1 Day</option>
+                                <option value="3">3 Days</option>
+                                <option value="7">1 Week</option>
+                                <option value="30">1 Month</option>
+                                <option value="90">3 Months</option>
+                                <option value="365">1 Year</option>
+                            </select>
+                        </div>
+                        <button id="generateCustomBtn" class="w-full btn-primary">
+                            <i class="fas fa-key mr-2"></i>Generate Custom Key
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Users Section -->
-            <div id="users" class="section">
-                <div class="card">
-                    <h2>User Management</h2>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Licenses</th>
-                                <th>Last Login</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="usersTable">
-                        </tbody>
-                    </table>
+                <div class="feature-card">
+                    <div class="icon-wrapper mb-4">
+                        <i class="fas fa-layer-group text-white"></i>
+                    </div>
+                    <h2 class="text-2xl font-semibold mb-6">Bulk Generation</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-slate-300">Number of Keys (Max: 100)</label>
+                            <input type="number" id="bulkCount" placeholder="Enter number of keys" class="w-full input-field" min="1" max="100" value="10">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-slate-300">Duration</label>
+                            <select id="bulkDuration" class="w-full select-field">
+                                <option value="1">1 Day</option>
+                                <option value="3">3 Days</option>
+                                <option value="7">1 Week</option>
+                                <option value="30">1 Month</option>
+                                <option value="90">3 Months</option>
+                                <option value="365">1 Year</option>
+                            </select>
+                        </div>
+                        <button id="bulkGenerateBtn" class="w-full btn-primary">
+                            <i class="fas fa-cubes mr-2"></i>Bulk Generate Keys
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+        
+        <div id="manage-tab" class="tab-content">
+            <h2 class="text-3xl font-bold gradient-text mb-6">Manage License Keys</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="stats-card">
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-key text-green-500 text-3xl mr-3"></i>
+                        <span id="totalKeys" class="text-4xl font-bold">0</span>
+                    </div>
+                    <p class="text-slate-400 mt-2">Total Keys</p>
+                </div>
+                <div class="stats-card">
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-unlock text-yellow-500 text-3xl mr-3"></i>
+                        <span id="unusedKeys" class="text-4xl font-bold">0</span>
+                    </div>
+                    <p class="text-slate-400 mt-2">Unused Keys</p>
+                </div>
+                <div class="stats-card">
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-check-circle text-blue-500 text-3xl mr-3"></i>
+                        <span id="activeKeys" class="text-4xl font-bold">0</span>
+                    </div>
+                    <p class="text-slate-400 mt-2">Active Keys</p>
+                </div>
+            </div>
+            <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center space-x-2">
+                    <input type="text" id="filterInput" placeholder="Filter by key or status" class="input-field max-w-xs">
+                    <div class="relative inline-block">
+                        <select id="sortSelect" class="select-field pr-8">
+                            <option value="status">Status</option>
+                            <option value="creationDate">Creation Date</option>
+                            <option value="expiryDate">Expiry Date</option>
+                        </select>
+                    </div>
+                    <button onclick="sortKeys()" class="btn-secondary">
+                        <i class="fas fa-sort mr-2"></i>Sort
+                    </button>
+                </div>
+                <div>
+                    <button onclick="downloadAllKeys()" class="btn-green mr-2">
+                        <i class="fas fa-download mr-2"></i>Download All
+                    </button>
+                    <button onclick="deleteAllKeys()" class="btn-green bg-red-600 hover:bg-red-700">
+                        <i class="fas fa-trash-alt mr-2"></i>Delete All
+                    </button>
+                </div>
+            </div>
+            
+            <div id="keys-container" class="space-y-4">
+                </div>
+        </div>
+
+        <div id="addons-tab" class="tab-content">
+            <h2 class="text-3xl font-bold gradient-text mb-6">Addons</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6">
+                    <div class="icon-wrapper mb-4">
+                        <i class="fas fa-history text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Extend Key</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-slate-300">Key or ALL Keys</label>
+                            <input type="text" id="extendKeyInput" placeholder="Enter key or type 'ALL'" class="w-full input-field">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-slate-300">Days to Add</label>
+                            <input type="number" id="extendDays" placeholder="Enter days" class="w-full input-field" min="1">
+                        </div>
+                        <button id="extendKeyBtn" class="w-full btn-primary">
+                            <i class="fas fa-plus-circle mr-2"></i>Extend Key(s)
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6">
+                    <div class="icon-wrapper mb-4">
+                        <i class="fas fa-sync-alt text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">HWID Management</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-slate-300">Key to Reset HWID</label>
+                            <input type="text" id="resetHwidKeyInput" placeholder="Enter key" class="w-full input-field">
+                        </div>
+                        <button id="resetHwidBtn" class="w-full btn-primary">
+                            <i class="fas fa-redo-alt mr-2"></i>Reset HWID
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-12 text-center text-slate-500 text-sm">
+            <p>&copy; 2024 EON AUTH. All rights reserved.</p>
+        </footer>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Application State
-        let currentUser = null;
-        let licenses = JSON.parse(localStorage.getItem('licenses')) || [];
-        let users = JSON.parse(localStorage.getItem('users')) || [];
-        let activities = JSON.parse(localStorage.getItem('activities')) || [];
+        // Mock data and API functions
+        let keys = JSON.parse(localStorage.getItem('eonKeys')) || [];
 
-        // Initialize sample data if empty
-        if (licenses.length === 0) {
-            licenses = [
-                {
-                    id: 'LIC-001',
-                    key: 'EON-ABCD-1234-EFGH-5678',
-                    customerName: 'John Doe',
-                    customerEmail: 'john.doe@example.com',
-                    type: 'professional',
-                    status: 'active',
-                    createdDate: '2024-01-15',
-                    expirationDate: '2026-01-15',
-                    maxDevices: 3,
-                    features: ['advanced-analytics', 'premium-support']
-                },
-                {
-                    id: 'LIC-002',
-                    key: 'EON-WXYZ-9876-MNOP-4321',
-                    customerName: 'Jane Smith',
-                    customerEmail: 'jane.smith@example.com',
-                    type: 'basic',
-                    status: 'active',
-                    createdDate: '2024-02-20',
-                    expirationDate: '2025-02-20',
-                    maxDevices: 1,
-                    features: ['basic-features']
-                }
-            ];
-            saveLicenses();
-        }
-
-        if (users.length === 0) {
-            users = [
-                {
-                    id: 'USR-001',
-                    name: 'John Doe',
-                    email: 'john.doe@example.com',
-                    licenses: 1,
-                    lastLogin: '2024-01-20',
-                    status: 'active'
-                },
-                {
-                    id: 'USR-002',
-                    name: 'Jane Smith',
-                    email: 'jane.smith@example.com',
-                    licenses: 1,
-                    lastLogin: '2024-01-19',
-                    status: 'active'
-                }
-            ];
-            saveUsers();
-        }
-
-        // Utility Functions
-        function generateLicenseKey() {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            const segments = 4;
-            const segmentLength = 4;
-            let key = 'EON';
-            
-            for (let i = 0; i < segments; i++) {
-                key += '-';
-                for (let j = 0; j < segmentLength; j++) {
-                    key += chars.charAt(Math.floor(Math.random() * chars.length));
-                }
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            toastMessage.textContent = message;
+            toast.classList.remove('error', 'show');
+            if (isError) {
+                toast.classList.add('error');
             }
-            return key;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
         }
 
-        function formatDate(dateString) {
-            return new Date(dateString).toLocaleDateString();
-        }
-
-        function isExpired(expirationDate) {
-            return new Date(expirationDate) < new Date();
-        }
-
-        function saveLicenses() {
-            localStorage.setItem('licenses', JSON.stringify(licenses));
-            updateDashboard();
-        }
-
-        function saveUsers() {
-            localStorage.setItem('users', JSON.stringify(users));
-            updateDashboard();
-        }
-
-        function saveActivities() {
-            localStorage.setItem('activities', JSON.stringify(activities));
-        }
-
-        function addActivity(action, user) {
-            activities.unshift({
-                action,
-                user,
-                time: new Date().toLocaleString()
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('Copied to clipboard!');
+            }).catch(err => {
+                showToast('Failed to copy text.', true);
+                console.error('Failed to copy text: ', err);
             });
-            if (activities.length > 50) activities.pop();
-            saveActivities();
         }
 
-        // Authentication
-        function login(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            
-            if (username === 'admin' && password === 'admin123') {
-                currentUser = { username: 'admin', role: 'admin' };
-                document.getElementById('loginScreen').classList.add('hidden');
-                document.getElementById('mainApp').classList.remove('hidden');
-                updateDashboard();
-                addActivity('User Login', username);
-            } else {
-                document.getElementById('loginError').classList.remove('hidden');
+        function generateLicenseKey(duration, prefix = '') {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let key = '';
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    key += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                if (i < 3) key += '-';
             }
-        }
-
-        function logout() {
-            currentUser = null;
-            document.getElementById('loginScreen').classList.remove('hidden');
-            document.getElementById('mainApp').classList.add('hidden');
-            document.getElementById('loginError').classList.add('hidden');
-        }
-
-        // Navigation
-        function showSection(sectionName) {
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            document.getElementById(sectionName).classList.add('active');
-            document.querySelector(`[data-section="${sectionName}"]`).classList.add('active');
-        }
-
-        // License Generation
-        function generateLicense(event) {
-            event.preventDefault();
-            
-            const customerEmail = document.getElementById('customerEmail').value;
-            const customerName = document.getElementById('customerName').value;
-            const licenseType = document.getElementById('licenseType').value;
-            const expirationDate = document.getElementById('expirationDate').value;
-            const maxDevices = parseInt(document.getElementById('maxDevices').value);
-            const features = document.getElementById('features').value.split(',').map(f => f.trim()).filter(f => f);
-            
-            const newLicense = {
-                id: `LIC-${String(licenses.length + 1).padStart(3, '0')}`,
-                key: generateLicenseKey(),
-                customerName,
-                customerEmail,
-                type: licenseType,
-                status: 'active',
-                createdDate: new Date().toISOString().split('T')[0],
-                expirationDate: expirationDate || new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-                maxDevices,
-                features
+            const fullKey = prefix ? `${prefix}-${key}` : key;
+            const newKey = {
+                key: fullKey,
+                duration: duration,
+                creationDate: moment().toISOString(),
+                expiryDate: moment().add(duration, 'days').toISOString(),
+                status: 'unused',
+                info: ''
             };
-            
-            licenses.push(newLicense);
-            saveLicenses();
-            
-            document.getElementById('keyDisplay').textContent = newLicense.key;
-            document.getElementById('generatedKey').classList.remove('hidden');
-            
-            addActivity('License Generated', customerEmail);
-            updateLicensesTable();
-            
-            // Reset form
-            document.getElementById('generateForm').reset();
+            keys.push(newKey);
+            localStorage.setItem('eonKeys', JSON.stringify(keys));
+            displayKeys(keys);
+            updateStats();
+            showToast('Key generated successfully!');
+            return fullKey;
         }
 
-        // License Verification
-        function verifyLicense(event) {
-            event.preventDefault();
-            
-            const keyToVerify = document.getElementById('verifyKey').value.trim();
-            const license = licenses.find(l => l.key === keyToVerify);
-            
-            const resultDiv = document.getElementById('verifyResult');
-            const alertDiv = document.getElementById('verifyAlert');
-            const detailsDiv = document.getElementById('verifyDetails');
-            
-            if (license) {
-                const expired = isExpired(license.expirationDate);
-                
-                alertDiv.className = `alert ${expired ? 'alert-error' : 'alert-success'}`;
-                alertDiv.textContent = expired ? 'License Key is EXPIRED' : 'License Key is VALID';
-                
-                detailsDiv.innerHTML = `
-                    <table class="table" style="margin-top: 1rem;">
-                        <tr><td><strong>Customer:</strong></td><td>${license.customerName}</td></tr>
-                        <tr><td><strong>Email:</strong></td><td>${license.customerEmail}</td></tr>
-                        <tr><td><strong>Type:</strong></td><td>${license.type}</td></tr>
-                        <tr><td><strong>Status:</strong></td><td><span class="status status-${license.status}">${license.status}</span></td></tr>
-                        <tr><td><strong>Created:</strong></td><td>${formatDate(license.createdDate)}</td></tr>
-                        <tr><td><strong>Expires:</strong></td><td>${formatDate(license.expirationDate)}</td></tr>
-                        <tr><td><strong>Max Devices:</strong></td><td>${license.maxDevices}</td></tr>
-                        <tr><td><strong>Features:</strong></td><td>${license.features.join(', ')}</td></tr>
-                    </table>
+        function createCustomKey(customKey, duration) {
+            const newKey = {
+                key: customKey,
+                duration: duration,
+                creationDate: moment().toISOString(),
+                expiryDate: moment().add(duration, 'days').toISOString(),
+                status: 'unused',
+                info: ''
+            };
+            keys.push(newKey);
+            localStorage.setItem('eonKeys', JSON.stringify(keys));
+            displayKeys(keys);
+            updateStats();
+            showToast('Custom key generated successfully!');
+        }
+
+        function generateBulkKeys(count, duration) {
+            const generatedKeys = [];
+            for (let i = 0; i < count; i++) {
+                generatedKeys.push(generateLicenseKey(duration));
+            }
+            showToast(`${count} keys generated successfully!`);
+            return generatedKeys;
+        }
+
+        function displayKeys(keysToDisplay) {
+            const container = document.getElementById('keys-container');
+            container.innerHTML = '';
+            if (keysToDisplay.length === 0) {
+                container.innerHTML = '<p class="text-center text-slate-500">No license keys found.</p>';
+                return;
+            }
+            keysToDisplay.forEach(key => {
+                const statusBadge = `<span class="status-badge status-${key.status}">${key.status}</span>`;
+                const expiryDate = moment(key.expiryDate).format('YYYY-MM-DD HH:mm:ss');
+                const keyItem = document.createElement('div');
+                keyItem.classList.add('key-item');
+                keyItem.innerHTML = `
+                    <div class="flex items-center justify-between w-full">
+                        <button onclick="copyToClipboard('${key.key}')" class="key-display flex-grow mr-4 text-left">${key.key}</button>
+                        <div class="flex items-center space-x-2">
+                            ${statusBadge}
+                            <span class="text-slate-400 text-sm">Expires: ${expiryDate}</span>
+                            <div class="relative group">
+                                <button onclick="deleteKey('${key.key}')" class="btn-green bg-red-600 hover:bg-red-700 text-xs p-2">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                                <span class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block px-2 py-1 bg-gray-700 text-white text-xs rounded-lg whitespace-nowrap">Delete</span>
+                            </div>
+                        </div>
+                    </div>
                 `;
-                
-                addActivity('License Verified', license.customerEmail);
+                container.appendChild(keyItem);
+            });
+        }
+
+        function updateStats() {
+            const totalKeys = keys.length;
+            const unusedKeys = keys.filter(k => k.status === 'unused').length;
+            const activeKeys = keys.filter(k => k.status === 'active').length;
+            document.getElementById('totalKeys').textContent = totalKeys;
+            document.getElementById('unusedKeys').textContent = unusedKeys;
+            document.getElementById('activeKeys').textContent = activeKeys;
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(`${tabId}-tab`).classList.add('active');
+            document.querySelector(`.nav-tab[onclick="switchTab('${tabId}')"]`).classList.add('active');
+            if (tabId === 'manage') {
+                displayKeys(keys);
+                updateStats();
+            }
+        }
+
+        function updateServerStatus() {
+            const statusDiv = document.getElementById('serverStatus');
+            const statusDot = statusDiv.querySelector('.status-dot');
+            const statusText = statusDiv.querySelector('span');
+
+            // Mock server status - can be replaced with real API call
+            const isConnected = Math.random() > 0.1;
+
+            if (isConnected) {
+                statusDiv.classList.remove('server-offline');
+                statusDiv.classList.add('server-connected');
+                statusDot.classList.remove('bg-red-500');
+                statusDot.classList.add('bg-green-500');
+                statusText.textContent = 'Server Connected';
             } else {
-                alertDiv.className = 'alert alert-error';
-                alertDiv.textContent = 'Invalid License Key';
-                detailsDiv.innerHTML = '<p>The license key you entered was not found in our database.</p>';
-            }
-            
-            resultDiv.classList.remove('hidden');
-        }
-
-        // Dashboard Updates
-        function updateDashboard() {
-            const totalLicenses = licenses.length;
-            const activeLicenses = licenses.filter(l => l.status === 'active' && !isExpired(l.expirationDate)).length;
-            const expiredLicenses = licenses.filter(l => isExpired(l.expirationDate)).length;
-            const totalUsers = users.length;
-            
-            document.getElementById('totalLicenses').textContent = totalLicenses;
-            document.getElementById('activeLicenses').textContent = activeLicenses;
-            document.getElementById('expiredLicenses').textContent = expiredLicenses;
-            document.getElementById('totalUsers').textContent = totalUsers;
-            
-            updateLicensesTable();
-            updateUsersTable();
-        }
-
-        // Update Tables
-        function updateLicensesTable() {
-            const tbody = document.getElementById('licensesTable');
-            tbody.innerHTML = '';
-            
-            licenses.forEach(license => {
-                const row = document.createElement('tr');
-                const expired = isExpired(license.expirationDate);
-                const status = expired ? 'expired' : license.status;
-                
-                row.innerHTML = `
-                    <td><code>${license.key}</code></td>
-                    <td>${license.customerName}<br><small>${license.customerEmail}</small></td>
-                    <td>${license.type}</td>
-                    <td><span class="status status-${status}">${status}</span></td>
-                    <td>${formatDate(license.expirationDate)}</td>
-                    <td>
-                        <button class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;" onclick="editLicense('${license.id}')">Edit</button>
-                        <button class="btn btn-danger" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;" onclick="deleteLicense('${license.id}')">Delete</button>
-                    </td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
-
-        function updateUsersTable() {
-            const tbody = document.getElementById('usersTable');
-            tbody.innerHTML = '';
-            
-            users.forEach(user => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${user.name}</td>
-                    <td>${user.email}</td>
-                    <td>${user.licenses}</td>
-                    <td>${formatDate(user.lastLogin)}</td>
-                    <td><span class="status status-${user.status}">${user.status}</span></td>
-                    <td>
-                        <button class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;" onclick="editUser('${user.id}')">Edit</button>
-                        <button class="btn btn-danger" style="padding: 0.25rem 0.5rem; font-size: 0.8rem;" onclick="deleteUser('${user.id}')">Delete</button>
-                    </td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
-
-        // License Management
-        function editLicense(licenseId) {
-            const license = licenses.find(l => l.id === licenseId);
-            if (license) {
-                const newExpiration = prompt('Enter new expiration date (YYYY-MM-DD):', license.expirationDate);
-                if (newExpiration) {
-                    license.expirationDate = newExpiration;
-                    saveLicenses();
-                }
+                statusDiv.classList.remove('server-connected');
+                statusDiv.classList.add('server-offline');
+                statusDot.classList.remove('bg-green-500');
+                statusDot.classList.add('bg-red-500');
+                statusText.textContent = 'Server Offline';
             }
         }
 
-        function deleteLicense(licenseId) {
-            if (confirm('Are you sure you want to delete this license?')) {
-                licenses = licenses.filter(l => l.id !== licenseId);
-                saveLicenses();
-            }
-        }
-
-        function editUser(userId) {
-            const user = users.find(u => u.id === userId);
-            if (user) {
-                const newStatus = prompt('Enter new status (active/inactive):', user.status);
-                if (newStatus && ['active', 'inactive'].includes(newStatus)) {
-                    user.status = newStatus;
-                    saveUsers();
-                }
-            }
-        }
-
-        function deleteUser(userId) {
-            if (confirm('Are you sure you want to delete this user?')) {
-                users = users.filter(u => u.id !== userId);
-                saveUsers();
-            }
-        }
-
-        // Search and Export
-        function searchLicenses() {
-            const searchTerm = document.getElementById('searchLicenses').value.toLowerCase();
-            const rows = document.querySelectorAll('#licensesTable tr');
-            
-            rows.forEach(row => {
-                const text = row.textContent.toLowerCase();
-                row.style.display = text.includes(searchTerm) ? '' : 'none';
-            });
-        }
-
-        function exportLicenses() {
-            const csvContent = [
-                ['License Key', 'Customer Name', 'Customer Email', 'Type', 'Status', 'Created', 'Expires', 'Max Devices'].join(','),
-                ...licenses.map(l => [
-                    l.key, l.customerName, l.customerEmail, l.type, l.status, 
-                    l.createdDate, l.expirationDate, l.maxDevices
-                ].join(','))
-            ].join('\n');
-            
-            const blob = new Blob([csvContent], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'licenses.csv';
-            a.click();
-            window.URL.revokeObjectURL(url);
-        }
-
-        function copyKey() {
-            const keyText = document.getElementById('keyDisplay').textContent;
-            navigator.clipboard.writeText(keyText).then(() => {
-                alert('License key copied to clipboard!');
-            });
-        }
-
-        // Event Listeners
-        document.getElementById('loginForm').addEventListener('submit', login);
-        document.getElementById('generateForm').addEventListener('submit', generateLicense);
-        document.getElementById('verifyForm').addEventListener('submit', verifyLicense);
-
-        document.querySelectorAll('.nav-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                if (e.target.dataset.section) {
-                    showSection(e.target.dataset.section);
-                }
-            });
+        document.getElementById('generateBtn').addEventListener('click', () => {
+            const duration = document.getElementById('duration').value;
+            const prefix = document.getElementById('prefix').value;
+            generateLicenseKey(duration, prefix);
         });
 
-        // Auto-set expiration date based on license type
-        document.getElementById('licenseType').addEventListener('change', (e) => {
-            const type = e.target.value;
-            const expirationInput = document.getElementById('expirationDate');
-            const today = new Date();
-            let expiration;
-            
-            switch (type) {
-                case 'basic':
-                    expiration = new Date(today.setFullYear(today.getFullYear() + 1));
-                    break;
-                case 'professional':
-                    expiration = new Date(today.setFullYear(today.getFullYear() + 2));
-                    break;
-                case 'enterprise':
-                    expiration = new Date(today.setFullYear(today.getFullYear() + 5));
-                    break;
-                case 'lifetime':
-                    expiration = new Date(today.setFullYear(today.getFullYear() + 50));
-                    break;
-                default:
-                    expiration = new Date(today.setFullYear(today.getFullYear() + 1));
+        document.getElementById('generateCustomBtn').addEventListener('click', () => {
+            const customKey = document.getElementById('customKey').value;
+            const customDuration = document.getElementById('customDuration').value;
+            if (customKey.trim() === '') {
+                showToast('Custom key cannot be empty!', true);
+                return;
             }
-            
-            expirationInput.value = expiration.toISOString().split('T')[0];
+            createCustomKey(customKey, customDuration);
         });
 
-        // Initialize dashboard on load
-        updateDashboard();
+        document.getElementById('bulkGenerateBtn').addEventListener('click', () => {
+            const count = document.getElementById('bulkCount').value;
+            const duration = document.getElementById('bulkDuration').value;
+            if (count < 1 || count > 100) {
+                showToast('Number of keys must be between 1 and 100.', true);
+                return;
+            }
+            generateBulkKeys(count, duration);
+        });
+
+        document.getElementById('filterInput').addEventListener('input', (e) => {
+            const filterText = e.target.value.toLowerCase();
+            const filteredKeys = keys.filter(key => 
+                key.key.toLowerCase().includes(filterText) ||
+                key.status.toLowerCase().includes(filterText)
+            );
+            displayKeys(filteredKeys);
+        });
+
+        function sortKeys() {
+            const sortValue = document.getElementById('sortSelect').value;
+            let sortedKeys = [...keys];
+            if (sortValue === 'status') {
+                sortedKeys.sort((a, b) => a.status.localeCompare(b.status));
+            } else if (sortValue === 'creationDate') {
+                sortedKeys.sort((a, b) => moment(b.creationDate).valueOf() - moment(a.creationDate).valueOf());
+            } else if (sortValue === 'expiryDate') {
+                sortedKeys.sort((a, b) => moment(a.expiryDate).valueOf() - moment(b.expiryDate).valueOf());
+            }
+            displayKeys(sortedKeys);
+        }
+
+        function deleteKey(keyToDelete) {
+            keys = keys.filter(key => key.key !== keyToDelete);
+            localStorage.setItem('eonKeys', JSON.stringify(keys));
+            displayKeys(keys);
+            updateStats();
+            showToast(`Key "${keyToDelete}" deleted.`);
+        }
+
+        function deleteAllKeys() {
+            if (confirm('Are you sure you want to delete all keys? This action cannot be undone.')) {
+                keys = [];
+                localStorage.setItem('eonKeys', JSON.stringify(keys));
+                displayKeys(keys);
+                updateStats();
+                showToast('All keys have been deleted.');
+            }
+        }
+
+        function extendKey(keyToExtend, days) {
+            const key = keys.find(k => k.key === keyToExtend);
+            if (key) {
+                key.expiryDate = moment(key.expiryDate).add(days, 'days').toISOString();
+                localStorage.setItem('eonKeys', JSON.stringify(keys));
+                displayKeys(keys);
+                showToast(`Key "${keyToExtend}" extended by ${days} days.`);
+            } else {
+                showToast(`Key "${keyToExtend}" not found!`, true);
+            }
+        }
+
+        function extendAllKeys(days) {
+            keys.forEach(key => {
+                key.expiryDate = moment(key.expiryDate).add(days, 'days').toISOString();
+            });
+            localStorage.setItem('eonKeys', JSON.stringify(keys));
+            displayKeys(keys);
+            showToast(`All keys extended by ${days} days.`);
+        }
+
+        document.getElementById('extendKeyBtn').addEventListener('click', () => {
+            const keyOrAll = document.getElementById('extendKeyInput').value.trim().toUpperCase();
+            const daysToAdd = parseInt(document.getElementById('extendDays').value, 10);
+
+            if (isNaN(daysToAdd) || daysToAdd <= 0) {
+                showToast('Please enter a valid number of days.', true);
+                return;
+            }
+
+            if (keyOrAll === 'ALL') {
+                extendAllKeys(daysToAdd);
+            } else {
+                extendKey(keyOrAll, daysToAdd);
+            }
+        });
+
+        function resetHWID(keyToReset) {
+            const key = keys.find(k => k.key === keyToReset);
+            if (key) {
+                // In a real application, you would make an API call here to reset the HWID.
+                // For this mock, we'll just show a toast message.
+                showToast(`HWID for key "${keyToReset}" has been reset!`);
+            } else {
+                showToast(`Key "${keyToReset}" not found!`, true);
+            }
+        }
+
+        document.getElementById('resetHwidBtn').addEventListener('click', () => {
+            const keyToReset = document.getElementById('resetHwidKeyInput').value.trim();
+            if (keyToReset === '') {
+                showToast('Please enter a key to reset HWID.', true);
+                return;
+            }
+            resetHWID(keyToReset);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateServerStatus();
+            // Initial view is on 'generate' tab. 'manage' tab is rendered when clicked.
+        });
+
     </script>
 </body>
 </html>
