@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EON Cheats - Reseller Panel</title>
-    <meta name="description" content="Powered By EON AUTH Services">
-    <meta name="author" content="EON AUTH">
-    
-    <meta property="og:title" content="EON Cheats - Reseller Panel">
-    <meta property="og:description" content="Powered By EON AUTH Services">
+    <title>EonAuth - Reseller Panel</title>
+    <meta name="description" content="Powered By Pluh Services">
+    <meta name="author" content="Pluh">
+    <meta property="og:title" content="Pluh - Reseller Panel">
+    <meta property="og:description" content="Powered By Pluh Services">
     <meta property="og:type" content="website">
-    
     <meta name="twitter:card" content="summary_large_image">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
@@ -21,35 +18,294 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#22c55e',
-                        secondary: '#16a34a',
-                        accent: '#15803d',
+                        primary: '#8a2be2',
+                        secondary: '#9370db',
+                        accent: '#6a0dad',
                         dark: '#0f172a',
                         'dark-lighter': '#1e293b',
                         'dark-card': '#334155',
                     },
                     animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in-out',
-                        'slide-up': 'slideUp 0.6s ease-out',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                    }
-                }
-            }
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            from: { opacity: 0, transform: 'translateY(10px)' },
+                            to: { opacity: 1, transform: 'translateY(0)' },
+                        },
+                    },
+                },
+            },
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            font-family: 'Inter', sans-serif;
+        /* Login Page Styles */
+        .login-page-bg {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
         }
 
-        body {
+        .login-page-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(50, 205, 50, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(124, 252, 0, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(0, 255, 0, 0.05) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        .particle {
+            position: absolute;
+            background: linear-gradient(45deg, #32cd32, #7cfc00);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { width: 4px; height: 4px; top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; top: 60%; left: 80%; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; top: 80%; left: 20%; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; top: 30%; left: 70%; animation-delay: 3s; }
+        .particle:nth-child(5) { width: 7px; height: 7px; top: 50%; left: 5%; animation-delay: 1.5s; }
+        .particle:nth-child(6) { width: 4px; height: 4px; top: 90%; left: 50%; animation-delay: 2.5s; }
+        .particle:nth-child(7) { width: 5px; height: 5px; top: 10%; left: 90%; animation-delay: 4s; }
+        .particle:nth-child(8) { width: 6px; height: 6px; top: 75%; left: 35%; animation-delay: 0.5s; }
+
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+
+        .login-container {
+            background: linear-gradient(145deg, rgba(30, 30, 30, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(50, 205, 50, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            width: 400px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 80px rgba(50, 205, 50, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 10;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #32cd32, #7cfc00, #32cd32, #7cfc00);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.3;
+            animation: borderGlow 3s linear infinite;
+        }
+
+        @keyframes borderGlow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 400% 0%; }
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #32cd32 0%, #7cfc00 50%, #00ff00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            text-shadow: 0 0 30px rgba(50, 205, 50, 0.3);
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from { filter: drop-shadow(0 0 10px rgba(50, 205, 50, 0.3)); }
+            to { filter: drop-shadow(0 0 20px rgba(50, 205, 50, 0.6)); }
+        }
+
+        .subtitle {
+            background: linear-gradient(90deg, #32cd32, #7cfc00);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(50, 205, 50, 0.3);
+            animation: subtitlePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes subtitlePulse {
+            0%, 100% { box-shadow: 0 4px 15px rgba(50, 205, 50, 0.3); }
+            50% { box-shadow: 6px 25px rgba(50, 205, 50, 0.5); }
+        }
+
+        .login-form {
+            margin-top: 30px;
+        }
+
+        .form-description {
+            color: #b0b0b0;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(50, 205, 50, 0.1) 0%, rgba(124, 252, 0, 0.05) 100%);
+            border: 1px solid rgba(50, 205, 50, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-box::before {
+            content: 'ℹ';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #32cd32, #7cfc00);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .info-text {
+            color: #d0d0d0;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-left: 35px;
+        }
+
+        .info-link {
+            color: #32cd32;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .info-link:hover {
+            color: #7cfc00;
+            text-shadow: 0 0 8px rgba(50, 205, 50, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(20, 20, 20, 0.8);
+            border: 2px solid rgba(50, 205, 50, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-input::placeholder {
+            color: #666;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #32cd32;
+            box-shadow: 0 0 20px rgba(50, 205, 50, 0.3);
+            background: rgba(20, 20, 20, 0.9);
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #32cd32 0%, #7cfc00 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(50, 205, 50, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(50, 205, 50, 0.4);
+        }
+
+        .login-button:active {
+            transform: translateY(0);
+        }
+
+        .footer-text {
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 25px;
+            line-height: 1.4;
+        }
+
+        /* PLUH Panel Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        .panel-bg {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
             min-height: 100vh;
             color: #f8fafc;
         }
-
+        
         .glass-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -59,26 +315,26 @@
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #22c55e, #16a34a, #15803d);
+            background: linear-gradient(135deg, #a750f5, #9370db, #6a0dad);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
+            background: linear-gradient(135deg, #8a2be2, #9370db);
             border: none;
             border-radius: 12px;
             padding: 12px 24px;
             color: white;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.6);
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.6);
         }
 
         .btn-secondary {
@@ -96,20 +352,20 @@
             transform: translateY(-1px);
         }
 
-        .btn-green {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
+        .btn-purple {
+            background: linear-gradient(135deg, #8a2be2, #9370db);
             border: none;
             border-radius: 12px;
             padding: 8px 16px;
             color: white;
             font-weight: 500;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(34, 197, 94, 0.3);
+            box-shadow: 0 2px 10px rgba(138, 43, 226, 0.3);
         }
 
-        .btn-green:hover {
+        .btn-purple:hover {
             transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.5);
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.5);
         }
 
         .input-field {
@@ -123,8 +379,8 @@
 
         .input-field:focus {
             outline: none;
-            border-color: #22c55e;
-            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+            border-color: #8a2be2;
+            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.1);
             background: rgba(0, 0, 0, 0.4);
         }
 
@@ -143,8 +399,8 @@
 
         .select-field:focus {
             outline: none;
-            border-color: #22c55e;
-            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+            border-color: #8a2be2;
+            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.1);
         }
 
         .select-field option {
@@ -167,9 +423,9 @@
         }
 
         .status-active {
-            background: rgba(34, 197, 94, 0.2);
-            color: #22c55e;
-            border: 1px solid rgba(34, 197, 94, 0.3);
+            background: rgba(138, 43, 226, 0.2);
+            color: #8a2be2;
+            border: 1px solid rgba(138, 43, 226, 0.3);
         }
 
         .status-expired {
@@ -190,7 +446,7 @@
 
         .key-display:hover {
             background: rgba(0, 0, 0, 0.5);
-            border-color: #22c55e;
+            border-color: #8a2be2;
         }
 
         .stats-card {
@@ -219,7 +475,7 @@
         .orb-1 {
             width: 200px;
             height: 200px;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
+            background: linear-gradient(135deg, #8a2be2, #9370db);
             top: 10%;
             left: 10%;
             animation-delay: 0s;
@@ -228,7 +484,7 @@
         .orb-2 {
             width: 150px;
             height: 150px;
-            background: linear-gradient(135deg, #15803d, #22c55e);
+            background: linear-gradient(135deg, #6a0dad, #8a2be2);
             top: 60%;
             right: 10%;
             animation-delay: 2s;
@@ -237,7 +493,7 @@
         .orb-3 {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, #16a34a, #15803d);
+            background: linear-gradient(135deg, #9370db, #6a0dad);
             bottom: 20%;
             left: 20%;
             animation-delay: 4s;
@@ -260,8 +516,8 @@
         }
 
         @keyframes glow {
-            from { box-shadow: 0 0 20px rgba(34, 197, 94, 0.5); }
-            to { box-shadow: 0 0 30px rgba(34, 197, 94, 0.8); }
+            from { box-shadow: 0 0 20px rgba(138, 43, 226, 0.5); }
+            to { box-shadow: 0 0 30px rgba(138, 43, 226, 0.8); }
         }
 
         .server-status {
@@ -280,9 +536,9 @@
         }
 
         .server-connected {
-            background: rgba(34, 197, 94, 0.2);
-            color: #22c55e;
-            border: 1px solid rgba(34, 197, 94, 0.3);
+            background: rgba(138, 43, 226, 0.2);
+            color: #8a2be2;
+            border: 1px solid rgba(138, 43, 226, 0.3);
         }
 
         .server-offline {
@@ -314,9 +570,9 @@
             font-weight: 500;
             transform: translateX(400px);
             transition: all 0.3s ease;
-            background: rgba(34, 197, 94, 0.9);
+            background: rgba(138, 43, 226, 0.9);
             color: white;
-            border: 1px solid rgba(34, 197, 94, 0.3);
+            border: 1px solid rgba(138, 43, 226, 0.3);
             backdrop-filter: blur(10px);
         }
 
@@ -349,9 +605,9 @@
         }
 
         .nav-tab.active {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
+            background: linear-gradient(135deg, #8a2be2, #9370db);
             color: white;
-            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
         }
 
         .nav-tab:not(.active) {
@@ -401,7 +657,7 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 16px;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
+            background: linear-gradient(135deg, #8a2be2, #9370db);
         }
 
         .bulk-keys-container {
@@ -451,240 +707,326 @@
 
         .compact-key-item:hover {
             background: rgba(255, 255, 255, 0.08);
-            border-color: #22c55e;
+            border-color: #8a2be2;
         }
 
-        /* New style to center the info */
         .key-info-center {
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-grow: 1; /* Pushes the actions to the right */
-            gap: 1.5rem; /* Add some space between the items */
+            flex-grow: 1;
+            gap: 1.5rem;
         }
     </style>
 </head>
-<body>
-    <div class="floating-orb orb-1"></div>
-    <div class="floating-orb orb-2"></div>
-    <div class="floating-orb orb-3"></div>
+<body class="login-page-bg">
 
-    <div id="toast" class="toast">
-        <span id="toastMessage"></span>
-    </div>
+    <div id="loginSection">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
 
-    <div id="serverStatus" class="server-status server-connected">
-        <div class="status-dot bg-green-500"></div>
-        <span>Server Connected</span>
-    </div>
-
-    <div class="container mx-auto px-6 py-8 relative z-10">
-        <header class="text-center mb-12">
-            <h1 class="text-6xl font-bold gradient-text mb-4 animate-fade-in glow">Eon Cheats</h1>
-            <p class="text-xl text-slate-300 mb-8 animate-slide-up">Reseller Panel</p>
-        </header>
-
-        <div class="nav-tabs">
-            <div class="nav-tab active" onclick="switchTab('generate')">
-                <i class="fas fa-key mr-2"></i>Generate Keys
+        <div class="login-container">
+            <div class="logo">
+                <h1>EonAuth</h1>
+                <div class="subtitle">Reseller Panel</div>
             </div>
-            <div class="nav-tab" onclick="switchTab('manage')">
-                <i class="fas fa-cogs mr-2"></i>Manage
-            </div>
-            <div class="nav-tab" onclick="switchTab('addons')">
-                <i class="fas fa-tools mr-2"></i>Addons
-            </div>
-        </div>
-
-        <div id="generate-tab" class="tab-content active">
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="icon-wrapper mb-4">
-                        <i class="fas fa-plus text-white"></i>
-                    </div>
-                    <h2 class="text-2xl font-semibold mb-6">Generate Single Key</h2>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Duration</label>
-                            <select id="duration" class="w-full select-field">
-                                <option value="1">1 Day</option>
-                                <option value="3">3 Days</option>
-                                <option value="7">1 Week</option>
-                                <option value="30">1 Month</option>
-                                <option value="90">3 Months</option>
-                                <option value="365">1 Year</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Key Prefix (Optional)</label>
-                            <input type="text" id="prefix" placeholder="e.g., PREMIUM, VIP, TRIAL" class="w-full input-field" maxlength="10">
-                        </div>
-                        <button id="generateBtn" class="w-full btn-primary">
-                            <i class="fas fa-magic mr-2"></i>Generate License Key
-                        </button>
-                    </div>
+            <div class="login-form">
+                <div class="form-description">
+                    Enter your reseller credentials to continue
                 </div>
-
-                <div class="feature-card">
-                    <div class="icon-wrapper mb-4">
-                        <i class="fas fa-edit text-white"></i>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="text" id="usernameInput" class="form-input" placeholder="Reseller Username" required>
                     </div>
-                    <h2 class="text-2xl font-semibold mb-6">Custom Key Generation</h2>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Custom Key</label>
-                            <input type="text" id="customKey" placeholder="e.g., IMPACT-F5CX-65D" class="w-full input-field" maxlength="50">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Duration</label>
-                            <select id="customDuration" class="w-full select-field">
-                                <option value="1">1 Day</option>
-                                <option value="3">3 Days</option>
-                                <option value="7">1 Week</option>
-                                <option value="30">1 Month</option>
-                                <option value="90">3 Months</option>
-                                <option value="365">1 Year</option>
-                            </select>
-                        </div>
-                        <button id="generateCustomBtn" class="w-full btn-primary">
-                            <i class="fas fa-key mr-2"></i>Generate Custom Key
-                        </button>
+                    <div class="form-group">
+                        <input type="password" id="passwordInput" class="form-input" placeholder="Password" required>
                     </div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="icon-wrapper mb-4">
-                        <i class="fas fa-layer-group text-white"></i>
-                    </div>
-                    <h2 class="text-2xl font-semibold mb-6">Bulk Generation</h2>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Number of Keys (Max: 100)</label>
-                            <input type="number" id="bulkCount" placeholder="Enter number of keys" class="w-full input-field" min="1" max="100" value="10">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Duration</label>
-                            <select id="bulkDuration" class="w-full select-field">
-                                <option value="1">1 Day</option>
-                                <option value="3">3 Days</option>
-                                <option value="7">1 Week</option>
-                                <option value="30">1 Month</option>
-                                <option value="90">3 Months</option>
-                                <option value="365">1 Year</option>
-                            </select>
-                        </div>
-                        <button id="bulkGenerateBtn" class="w-full btn-primary">
-                            <i class="fas fa-cubes mr-2"></i>Bulk Generate Keys
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div id="manage-tab" class="tab-content">
-            <h2 class="text-3xl font-bold gradient-text mb-6">Manage License Keys</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div class="stats-card">
-                    <div class="flex items-center justify-center">
-                        <i class="fas fa-key text-green-500 text-3xl mr-3"></i>
-                        <span id="totalKeys" class="text-4xl font-bold">0</span>
-                    </div>
-                    <p class="text-slate-400 mt-2">Total Keys</p>
-                </div>
-                <div class="stats-card">
-                    <div class="flex items-center justify-center">
-                        <i class="fas fa-unlock text-yellow-500 text-3xl mr-3"></i>
-                        <span id="unusedKeys" class="text-4xl font-bold">0</span>
-                    </div>
-                    <p class="text-slate-400 mt-2">Unused Keys</p>
-                </div>
-                <div class="stats-card">
-                    <div class="flex items-center justify-center">
-                        <i class="fas fa-check-circle text-blue-500 text-3xl mr-3"></i>
-                        <span id="activeKeys" class="text-4xl font-bold">0</span>
-                    </div>
-                    <p class="text-slate-400 mt-2">Active Keys</p>
-                </div>
-            </div>
-            <div class="flex justify-between items-center mb-4">
-                <div class="flex items-center space-x-2">
-                    <input type="text" id="filterInput" placeholder="Filter by key or status" class="input-field max-w-xs">
-                    <div class="relative inline-block">
-                        <select id="sortSelect" class="select-field pr-8">
-                            <option value="status">Status</option>
-                            <option value="creationDate">Creation Date</option>
-                            <option value="expiryDate">Expiry Date</option>
-                        </select>
-                    </div>
-                    <button onclick="sortKeys()" class="btn-secondary">
-                        <i class="fas fa-sort mr-2"></i>Sort
+                    <button type="submit" class="login-button">
+                        Login as Reseller
                     </button>
+                </form>
+                <div class="footer-text">
+                    Need a reseller account? <a href="#" class="info-link" onclick="window.open('https://discord.gg/eonauth', '_blank'); return false;">Join our discord</a>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="panelSection" class="hidden panel-bg">
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+        <div class="floating-orb orb-3"></div>
+
+        <div id="toast" class="toast">
+            <span id="toastMessage"></span>
+        </div>
+
+        <div id="serverStatus" class="server-status server-connected">
+            <div class="status-dot bg-purple-500"></div>
+            <span>Server Connected</span>
+        </div>
+
+        <div class="container mx-auto px-6 py-8 relative z-10">
+            <header class="text-center mb-12 flex justify-between items-start">
                 <div>
-                    <button onclick="downloadAllKeys()" class="btn-green mr-2">
-                        <i class="fas fa-download mr-2"></i>Download All
-                    </button>
-                    <button onclick="deleteAllKeys()" class="btn-green bg-red-600 hover:bg-red-700">
-                        <i class="fas fa-trash-alt mr-2"></i>Delete All
-                    </button>
+                    <h1 class="text-6xl font-bold gradient-text mb-4 animate-fade-in glow">Pluh</h1>
+                    <p class="text-xl text-slate-300 mb-8 animate-slide-up">Reseller Panel</p>
+                </div>
+                <button onclick="logout()" class="btn-secondary px-4 py-2 text-sm">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Log out
+                </button>
+            </header>
+
+            <div class="nav-tabs">
+                <div class="nav-tab active" onclick="switchTab('generate')">
+                    <i class="fas fa-key mr-2"></i>Generate Keys
+                </div>
+                <div class="nav-tab" onclick="switchTab('manage')">
+                    <i class="fas fa-cogs mr-2"></i>Manage
+                </div>
+                <div class="nav-tab" onclick="switchTab('addons')">
+                    <i class="fas fa-tools mr-2"></i>Addons
+                </div>
+            </div>
+
+            <div id="generate-tab" class="tab-content active">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="icon-wrapper mb-4">
+                            <i class="fas fa-plus text-white"></i>
+                        </div>
+                        <h2 class="text-2xl font-semibold mb-6">Generate Single Key</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-slate-300">Duration</label>
+                                <select id="duration" class="w-full select-field">
+                                    <option value="1">1 Day</option>
+                                    <option value="3">3 Days</option>
+                                    <option value="7">1 Week</option>
+                                    <option value="30">1 Month</option>
+                                    <option value="90">3 Months</option>
+                                    <option value="365">1 Year</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-slate-300">Key Prefix (Optional)</label>
+                                <input type="text" id="prefix" placeholder="e.g., PREMIUM, VIP, TRIAL" class="w-full input-field" maxlength="10">
+                            </div>
+                            <button id="generateBtn" class="w-full btn-primary">
+                                <i class="fas fa-magic mr-2"></i>Generate License Key
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon-wrapper mb-4">
+                            <i class="fas fa-edit text-white"></i>
+                        </div>
+                        <h2 class="text-2xl font-semibold mb-6">Custom Key Generation</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-slate-300">Custom Key</label>
+                                <input type="text" id="customKey" placeholder="e.g., IMPACT-F5CX-65D" class="w-full input-field" maxlength="50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-slate-300">Duration</label>
+                                <select id="customDuration" class="w-full select-field">
+                                    <option value="1">1 Day</option>
+                                    <option value="3">3 Days</option>
+                                    <option value="7">1 Week</option>
+                                    <option value="30">1 Month</option>
+                                    <option value="90">3 Months</option>
+                                    <option value="365">1 Year</option>
+                                </select>
+                            </div>
+                            <button id="generateCustomBtn" class="w-full btn-primary">
+                                <i class="fas fa-key mr-2"></i>Generate Custom Key
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon-wrapper mb-4">
+                            <i class="fas fa-layer-group text-white"></i>
+                        </div>
+                        <h2 class="text-2xl font-semibold mb-6">Bulk Generation</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-slate-300">Number of Keys (Max: 100)</label>
+                                <input type="number" id="bulkCount" placeholder="Enter number of keys" class="w-full input-field" min="1" max="100" value="10">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-slate-300">Duration</label>
+                                <select id="bulkDuration" class="w-full select-field">
+                                    <option value="1">1 Day</option>
+                                    <option value="3">3 Days</option>
+                                    <option value="7">1 Week</option>
+                                    <option value="30">1 Month</option>
+                                    <option value="90">3 Months</option>
+                                    <option value="365">1 Year</option>
+                                </select>
+                            </div>
+                            <button id="bulkGenerateBtn" class="w-full btn-primary">
+                                <i class="fas fa-cubes mr-2"></i>Bulk Generate Keys
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div id="keys-container" class="space-y-4">
-                </div>
-        </div>
-
-        <div id="addons-tab" class="tab-content">
-            <h2 class="text-3xl font-bold gradient-text mb-6">Addons</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="glass-card p-6">
-                    <div class="icon-wrapper mb-4">
-                        <i class="fas fa-history text-white"></i>
+            <div id="manage-tab" class="tab-content">
+                <h2 class="text-3xl font-bold gradient-text mb-6">Manage License Keys</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="stats-card">
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-key text-purple-500 text-3xl mr-3"></i>
+                            <span id="totalKeys" class="text-4xl font-bold">0</span>
+                        </div>
+                        <p class="text-slate-400 mt-2">Total Keys</p>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Extend Key</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Key or ALL Keys</label>
-                            <input type="text" id="extendKeyInput" placeholder="Enter key or type 'ALL'" class="w-full input-field">
+                    <div class="stats-card">
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-unlock text-yellow-500 text-3xl mr-3"></i>
+                            <span id="unusedKeys" class="text-4xl font-bold">0</span>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Days to Add</label>
-                            <input type="number" id="extendDays" placeholder="Enter days" class="w-full input-field" min="1">
+                        <p class="text-slate-400 mt-2">Unused Keys</p>
+                    </div>
+                    <div class="stats-card">
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-check-circle text-blue-500 text-3xl mr-3"></i>
+                            <span id="activeKeys" class="text-4xl font-bold">0</span>
                         </div>
-                        <button id="extendKeyBtn" class="w-full btn-primary">
-                            <i class="fas fa-plus-circle mr-2"></i>Extend Key(s)
+                        <p class="text-slate-400 mt-2">Active Keys</p>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center mb-4">
+                    <div class="flex items-center space-x-2">
+                        <input type="text" id="filterInput" placeholder="Filter by key or status" class="input-field max-w-xs">
+                        <div class="relative inline-block">
+                            <select id="sortSelect" class="select-field pr-8">
+                                <option value="status">Status</option>
+                                <option value="creationDate">Creation Date</option>
+                                <option value="expiryDate">Expiry Date</option>
+                            </select>
+                        </div>
+                        <button onclick="sortKeys()" class="btn-secondary">
+                            <i class="fas fa-sort mr-2"></i>Sort
+                        </button>
+                    </div>
+                    <div>
+                        <button onclick="downloadAllKeys()" class="btn-purple mr-2">
+                            <i class="fas fa-download mr-2"></i>Download All
+                        </button>
+                        <button onclick="deleteAllKeys()" class="btn-purple bg-red-600 hover:bg-red-700">
+                            <i class="fas fa-trash-alt mr-2"></i>Delete All
                         </button>
                     </div>
                 </div>
+                
+                <div id="keys-container" class="space-y-4">
+                </div>
+            </div>
 
-                <div class="glass-card p-6">
-                    <div class="icon-wrapper mb-4">
-                        <i class="fas fa-sync-alt text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">HWID Management</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Key to Reset HWID</label>
-                            <input type="text" id="resetHwidKeyInput" placeholder="Enter key" class="w-full input-field">
+            <div id="addons-tab" class="tab-content">
+                <h2 class="text-3xl font-bold gradient-text mb-6">Addons</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-card p-6">
+                        <div class="icon-wrapper mb-4">
+                            <i class="fas fa-history text-white"></i>
                         </div>
-                        <button id="resetHwidBtn" class="w-full btn-primary">
-                            <i class="fas fa-redo-alt mr-2"></i>Reset HWID
-                        </button>
+                        <h3 class="text-xl font-semibold mb-4">Extend Key</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-slate-300">Key or ALL Keys</label>
+                                <input type="text" id="extendKeyInput" placeholder="Enter key or type 'ALL'" class="w-full input-field">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-slate-300">Days to Add</label>
+                                <input type="number" id="extendDays" placeholder="Enter days" class="w-full input-field" min="1">
+                            </div>
+                            <button id="extendKeyBtn" class="w-full btn-primary">
+                                <i class="fas fa-plus-circle mr-2"></i>Extend Key(s)
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6">
+                        <div class="icon-wrapper mb-4">
+                            <i class="fas fa-sync-alt text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">HWID Management</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-slate-300">Key to Reset HWID</label>
+                                <input type="text" id="resetHwidKeyInput" placeholder="Enter key" class="w-full input-field">
+                            </div>
+                            <button id="resetHwidBtn" class="w-full btn-primary">
+                                <i class="fas fa-redo-alt mr-2"></i>Reset HWID
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <footer class="mt-12 text-center text-slate-500 text-sm">
-            <p>&copy; 2024 EON AUTH. All rights reserved.</p>
-        </footer>
+            <footer class="mt-12 text-center text-slate-500 text-sm">
+                <p>&copy; 2024 Pluh. All rights reserved.</p>
+            </footer>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Mock data and API functions
-        let keys = JSON.parse(localStorage.getItem('eonKeys')) || [];
+        // --- Login Logic ---
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('usernameInput').value;
+            const password = document.getElementById('passwordInput').value;
+            const loginSection = document.getElementById('loginSection');
+            const panelSection = document.getElementById('panelSection');
+
+            if (username === 'Pluh' && password === 'PluhAdmin') {
+                // Hide login section and show panel section
+                loginSection.style.display = 'none';
+                panelSection.style.display = 'block';
+                // Update the body's class to match the panel's dark theme
+                document.body.className = "panel-bg";
+                // Initialize panel functionality
+                updateServerStatus();
+                // Initialize tab listeners
+                initializePanelListeners();
+            } else {
+                alert('Invalid username or password!');
+            }
+        });
+
+        // --- Logout Logic ---
+        function logout() {
+            const loginSection = document.getElementById('loginSection');
+            const panelSection = document.getElementById('panelSection');
+            const usernameInput = document.getElementById('usernameInput');
+            const passwordInput = document.getElementById('passwordInput');
+
+            // Hide panel section and show login section
+            panelSection.style.display = 'none';
+            loginSection.style.display = 'block';
+
+            // Clear login form fields
+            usernameInput.value = '';
+            passwordInput.value = '';
+
+            // Update the body's class to match the login page's theme
+            document.body.className = "login-page-bg";
+        }
+
+        // --- PLUH Panel Logic ---
+        let keys = JSON.parse(localStorage.getItem('pluhKeys')) || [];
 
         function showToast(message, isError = false) {
             const toast = document.getElementById('toast');
@@ -728,7 +1070,7 @@
                 info: ''
             };
             keys.push(newKey);
-            localStorage.setItem('eonKeys', JSON.stringify(keys));
+            localStorage.setItem('pluhKeys', JSON.stringify(keys));
             displayKeys(keys);
             updateStats();
             showToast('Key generated successfully!');
@@ -745,7 +1087,7 @@
                 info: ''
             };
             keys.push(newKey);
-            localStorage.setItem('eonKeys', JSON.stringify(keys));
+            localStorage.setItem('pluhKeys', JSON.stringify(keys));
             displayKeys(keys);
             updateStats();
             showToast('Custom key generated successfully!');
@@ -779,7 +1121,7 @@
                             ${statusBadge}
                             <span class="text-slate-400 text-sm">Expires: ${expiryDate}</span>
                             <div class="relative group">
-                                <button onclick="deleteKey('${key.key}')" class="btn-green bg-red-600 hover:bg-red-700 text-xs p-2">
+                                <button onclick="deleteKey('${key.key}')" class="btn-purple bg-red-600 hover:bg-red-700 text-xs p-2">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                                 <span class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block px-2 py-1 bg-gray-700 text-white text-xs rounded-lg whitespace-nowrap">Delete</span>
@@ -816,75 +1158,26 @@
             const statusDot = statusDiv.querySelector('.status-dot');
             const statusText = statusDiv.querySelector('span');
 
-            // Mock server status - can be replaced with real API call
             const isConnected = Math.random() > 0.1;
 
             if (isConnected) {
                 statusDiv.classList.remove('server-offline');
                 statusDiv.classList.add('server-connected');
                 statusDot.classList.remove('bg-red-500');
-                statusDot.classList.add('bg-green-500');
+                statusDot.classList.add('bg-purple-500');
                 statusText.textContent = 'Server Connected';
             } else {
                 statusDiv.classList.remove('server-connected');
                 statusDiv.classList.add('server-offline');
-                statusDot.classList.remove('bg-green-500');
+                statusDot.classList.remove('bg-purple-500');
                 statusDot.classList.add('bg-red-500');
                 statusText.textContent = 'Server Offline';
             }
         }
 
-        document.getElementById('generateBtn').addEventListener('click', () => {
-            const duration = document.getElementById('duration').value;
-            const prefix = document.getElementById('prefix').value;
-            generateLicenseKey(duration, prefix);
-        });
-
-        document.getElementById('generateCustomBtn').addEventListener('click', () => {
-            const customKey = document.getElementById('customKey').value;
-            const customDuration = document.getElementById('customDuration').value;
-            if (customKey.trim() === '') {
-                showToast('Custom key cannot be empty!', true);
-                return;
-            }
-            createCustomKey(customKey, customDuration);
-        });
-
-        document.getElementById('bulkGenerateBtn').addEventListener('click', () => {
-            const count = document.getElementById('bulkCount').value;
-            const duration = document.getElementById('bulkDuration').value;
-            if (count < 1 || count > 100) {
-                showToast('Number of keys must be between 1 and 100.', true);
-                return;
-            }
-            generateBulkKeys(count, duration);
-        });
-
-        document.getElementById('filterInput').addEventListener('input', (e) => {
-            const filterText = e.target.value.toLowerCase();
-            const filteredKeys = keys.filter(key => 
-                key.key.toLowerCase().includes(filterText) ||
-                key.status.toLowerCase().includes(filterText)
-            );
-            displayKeys(filteredKeys);
-        });
-
-        function sortKeys() {
-            const sortValue = document.getElementById('sortSelect').value;
-            let sortedKeys = [...keys];
-            if (sortValue === 'status') {
-                sortedKeys.sort((a, b) => a.status.localeCompare(b.status));
-            } else if (sortValue === 'creationDate') {
-                sortedKeys.sort((a, b) => moment(b.creationDate).valueOf() - moment(a.creationDate).valueOf());
-            } else if (sortValue === 'expiryDate') {
-                sortedKeys.sort((a, b) => moment(a.expiryDate).valueOf() - moment(b.expiryDate).valueOf());
-            }
-            displayKeys(sortedKeys);
-        }
-
         function deleteKey(keyToDelete) {
             keys = keys.filter(key => key.key !== keyToDelete);
-            localStorage.setItem('eonKeys', JSON.stringify(keys));
+            localStorage.setItem('pluhKeys', JSON.stringify(keys));
             displayKeys(keys);
             updateStats();
             showToast(`Key "${keyToDelete}" deleted.`);
@@ -893,7 +1186,7 @@
         function deleteAllKeys() {
             if (confirm('Are you sure you want to delete all keys? This action cannot be undone.')) {
                 keys = [];
-                localStorage.setItem('eonKeys', JSON.stringify(keys));
+                localStorage.setItem('pluhKeys', JSON.stringify(keys));
                 displayKeys(keys);
                 updateStats();
                 showToast('All keys have been deleted.');
@@ -904,7 +1197,7 @@
             const key = keys.find(k => k.key === keyToExtend);
             if (key) {
                 key.expiryDate = moment(key.expiryDate).add(days, 'days').toISOString();
-                localStorage.setItem('eonKeys', JSON.stringify(keys));
+                localStorage.setItem('pluhKeys', JSON.stringify(keys));
                 displayKeys(keys);
                 showToast(`Key "${keyToExtend}" extended by ${days} days.`);
             } else {
@@ -916,52 +1209,83 @@
             keys.forEach(key => {
                 key.expiryDate = moment(key.expiryDate).add(days, 'days').toISOString();
             });
-            localStorage.setItem('eonKeys', JSON.stringify(keys));
+            localStorage.setItem('pluhKeys', JSON.stringify(keys));
             displayKeys(keys);
             showToast(`All keys extended by ${days} days.`);
         }
 
-        document.getElementById('extendKeyBtn').addEventListener('click', () => {
-            const keyOrAll = document.getElementById('extendKeyInput').value.trim().toUpperCase();
-            const daysToAdd = parseInt(document.getElementById('extendDays').value, 10);
-
-            if (isNaN(daysToAdd) || daysToAdd <= 0) {
-                showToast('Please enter a valid number of days.', true);
-                return;
-            }
-
-            if (keyOrAll === 'ALL') {
-                extendAllKeys(daysToAdd);
-            } else {
-                extendKey(keyOrAll, daysToAdd);
-            }
-        });
-
         function resetHWID(keyToReset) {
             const key = keys.find(k => k.key === keyToReset);
             if (key) {
-                // In a real application, you would make an API call here to reset the HWID.
-                // For this mock, we'll just show a toast message.
                 showToast(`HWID for key "${keyToReset}" has been reset!`);
             } else {
                 showToast(`Key "${keyToReset}" not found!`, true);
             }
         }
 
-        document.getElementById('resetHwidBtn').addEventListener('click', () => {
-            const keyToReset = document.getElementById('resetHwidKeyInput').value.trim();
-            if (keyToReset === '') {
-                showToast('Please enter a key to reset HWID.', true);
-                return;
-            }
-            resetHWID(keyToReset);
-        });
+        function initializePanelListeners() {
+            document.getElementById('generateBtn').addEventListener('click', () => {
+                const duration = document.getElementById('duration').value;
+                const prefix = document.getElementById('prefix').value;
+                generateLicenseKey(duration, prefix);
+            });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            updateServerStatus();
-            // Initial view is on 'generate' tab. 'manage' tab is rendered when clicked.
-        });
+            document.getElementById('generateCustomBtn').addEventListener('click', () => {
+                const customKey = document.getElementById('customKey').value;
+                const customDuration = document.getElementById('customDuration').value;
+                if (customKey.trim() === '') {
+                    showToast('Custom key cannot be empty!', true);
+                    return;
+                }
+                createCustomKey(customKey, customDuration);
+            });
 
+            document.getElementById('bulkGenerateBtn').addEventListener('click', () => {
+                const count = document.getElementById('bulkCount').value;
+                const duration = document.getElementById('bulkDuration').value;
+                if (count < 1 || count > 100) {
+                    showToast('Number of keys must be between 1 and 100.', true);
+                    return;
+                }
+                generateBulkKeys(count, duration);
+            });
+
+            document.getElementById('filterInput').addEventListener('input', (e) => {
+                const filterText = e.target.value.toLowerCase();
+                const filteredKeys = keys.filter(key =>
+                    key.key.toLowerCase().includes(filterText) ||
+                    key.status.toLowerCase().includes(filterText)
+                );
+                displayKeys(filteredKeys);
+            });
+
+            document.getElementById('sortSelect').addEventListener('change', sortKeys);
+
+            document.getElementById('extendKeyBtn').addEventListener('click', () => {
+                const keyOrAll = document.getElementById('extendKeyInput').value.trim().toUpperCase();
+                const daysToAdd = parseInt(document.getElementById('extendDays').value, 10);
+
+                if (isNaN(daysToAdd) || daysToAdd <= 0) {
+                    showToast('Please enter a valid number of days.', true);
+                    return;
+                }
+
+                if (keyOrAll === 'ALL') {
+                    extendAllKeys(daysToAdd);
+                } else {
+                    extendKey(keyOrAll, daysToAdd);
+                }
+            });
+
+            document.getElementById('resetHwidBtn').addEventListener('click', () => {
+                const keyToReset = document.getElementById('resetHwidKeyInput').value.trim();
+                if (keyToReset === '') {
+                    showToast('Please enter a key to reset HWID.', true);
+                    return;
+                }
+                resetHWID(keyToReset);
+            });
+        }
     </script>
 </body>
 </html>
