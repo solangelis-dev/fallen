@@ -821,6 +821,9 @@
                             <button id="generateBtn" class="w-full btn-primary">
                                 <i class="fas fa-magic mr-2"></i>Generate License Key
                             </button>
+                            <button id="generateApiBtn" class="w-full btn-primary">
+                                <i class="fas fa-cloud mr-2"></i>Generate via API
+                            </button>
                         </div>
                     </div>
 
@@ -1222,6 +1225,45 @@
                 showToast(`Key "${keyToReset}" not found!`, true);
             }
         }
+        
+        // --- New API Endpoint Logic ---
+        function callGenerateAPI() {
+            const duration = document.getElementById('duration').value;
+            const prefix = document.getElementById('prefix').value;
+            const apiEndpoint = '/api/generate-key'; // This is a mock endpoint URL
+
+            // Show a "loading" toast
+            showToast('Calling API...');
+
+            // Simulate an API call
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    duration: duration,
+                    prefix: prefix,
+                    // You would normally send authentication data here
+                }),
+            })
+            .then(response => {
+                // Check if the mock response is successful
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('API call failed');
+                }
+            })
+            .then(data => {
+                // On success, generate the key using existing logic
+                generateLicenseKey(data.duration, data.prefix); // Use data from the mock response
+            })
+            .catch(error => {
+                console.error('API Error:', error);
+                showToast('Error calling API.', true);
+            });
+        }
 
         function initializePanelListeners() {
             document.getElementById('generateBtn').addEventListener('click', () => {
@@ -1229,6 +1271,8 @@
                 const prefix = document.getElementById('prefix').value;
                 generateLicenseKey(duration, prefix);
             });
+
+            document.getElementById('generateApiBtn').addEventListener('click', callGenerateAPI);
 
             document.getElementById('generateCustomBtn').addEventListener('click', () => {
                 const customKey = document.getElementById('customKey').value;
