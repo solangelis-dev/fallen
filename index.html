@@ -3,372 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pluh - Reseller Panel</title>
-    <meta name="description" content="Powered By Pluh Services">
-    <meta name="author" content="Pluh">
-    
-    <meta property="og:title" content="Pluh - Reseller Panel">
-    <meta property="og:description" content="Powered By Pluh Services">
-    <meta property="og:type" content="website">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#8a2be2',
-                        secondary: '#9370db',
-                        accent: '#6a0dad',
-                        dark: '#0f172a',
-                        'dark-lighter': '#1e293b',
-                        'dark-card': '#334155',
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in-out',
-                        'slide-up': 'slideUp 0.6s ease-out',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                    }
-                }
-            }
-        }
-    </script>
+    <title>EON AUTH - License Management</title>
+    <meta name="description" content="#1 Reseller Panel Creator - Professional License Management System">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
         * {
-            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
             min-height: 100vh;
-            color: #f8fafc;
+            overflow-x: hidden;
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #a750f5, #9370db, #6a0dad);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #8a2be2, #9370db);
-            border: none;
-            border-radius: 12px;
-            padding: 12px 24px;
-            color: white;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.6);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 12px 24px;
-            color: #f8fafc;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-1px);
-        }
-
-        .btn-purple {
-            background: linear-gradient(135deg, #8a2be2, #9370db);
-            border: none;
-            border-radius: 12px;
-            padding: 8px 16px;
-            color: white;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(138, 43, 226, 0.3);
-        }
-
-        .btn-purple:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.5);
-        }
-
-        .input-field {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 12px 16px;
-            color: #f8fafc;
-            transition: all 0.3s ease;
-        }
-
-        .input-field:focus {
-            outline: none;
-            border-color: #8a2be2;
-            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.1);
-            background: rgba(0, 0, 0, 0.4);
-        }
-
-        .input-field::placeholder {
-            color: #94a3b8;
-        }
-
-        .select-field {
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 12px 16px;
-            color: #f8fafc;
-            transition: all 0.3s ease;
-        }
-
-        .select-field:focus {
-            outline: none;
-            border-color: #8a2be2;
-            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.1);
-        }
-
-        .select-field option {
-            background: #1e293b;
-            color: #f8fafc;
-        }
-
-        .status-badge {
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .status-unused {
-            background: rgba(251, 191, 36, 0.2);
-            color: #fbbf24;
-            border: 1px solid rgba(251, 191, 36, 0.3);
-        }
-
-        .status-used {
-            background: rgba(138, 43, 226, 0.2);
-            color: #8a2be2;
-            border: 1px solid rgba(138, 43, 226, 0.3);
-        }
-        
-        .status-active {
-            background: rgba(138, 43, 226, 0.2);
-            color: #8a2be2;
-            border: 1px solid rgba(138, 43, 226, 0.3);
-        }
-
-        .status-expired {
-            background: rgba(239, 68, 68, 0.2);
-            color: #ef4444;
-            border: 1px solid rgba(239, 68, 68, 0.3);
-        }
-
-        .key-display {
-            font-family: 'Courier New', monospace;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 8px 12px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .key-display:hover {
-            background: rgba(0, 0, 0, 0.5);
-            border-color: #8a2be2;
-        }
-
-        .stats-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 20px;
+        }
+
+        /* Header */
+        .header {
             text-align: center;
-            transition: all 0.3s ease;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            border-bottom: 2px solid #333;
         }
 
-        .stats-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-2px);
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.4);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
         }
 
-        .floating-orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(40px);
-            opacity: 0.6;
-            animation: float 6s ease-in-out infinite;
-            pointer-events: none;
+        .subtitle {
+            font-size: 1.2rem;
+            color: #cccccc;
+            font-weight: 300;
         }
 
-        .orb-1 {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg, #8a2be2, #9370db);
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .orb-2 {
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(135deg, #6a0dad, #8a2be2);
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .orb-3 {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #9370db, #6a0dad);
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(120deg); }
-            66% { transform: translateY(10px) rotate(240deg); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes glow {
-            from { box-shadow: 0 0 20px rgba(138, 43, 226, 0.5); }
-            to { box-shadow: 0 0 30px rgba(138, 43, 226, 0.8); }
-        }
-
-        .server-status {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            padding: 12px 16px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .server-connected {
-            background: rgba(138, 43, 226, 0.2);
-            color: #8a2be2;
-            border: 1px solid rgba(138, 43, 226, 0.3);
-        }
-
-        .server-offline {
-            background: rgba(239, 68, 68, 0.2);
-            color: #ef4444;
-            border: 1px solid rgba(239, 68, 68, 0.3);
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
-
-        .toast {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            padding: 16px 20px;
-            border-radius: 12px;
-            font-weight: 500;
-            transform: translateX(400px);
-            transition: all 0.3s ease;
-            background: rgba(138, 43, 226, 0.9);
-            color: white;
-            border: 1px solid rgba(138, 43, 226, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .toast.show {
-            transform: translateX(0);
-        }
-
-        .toast.error {
-            background: rgba(239, 68, 68, 0.9);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-        }
-
+        /* Navigation Tabs */
         .nav-tabs {
             display: flex;
-            gap: 4px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 4px;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 40px;
             border-radius: 12px;
-            margin-bottom: 24px;
+            overflow: hidden;
+            background: #1a1a1a;
+            border: 2px solid #333;
         }
 
         .nav-tab {
-            flex: 1;
-            padding: 12px 16px;
-            border-radius: 8px;
-            text-align: center;
+            padding: 15px 30px;
+            background: transparent;
+            color: #cccccc;
+            border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-weight: 500;
+            font-size: 1rem;
+            font-weight: 600;
+            flex: 1;
+            text-align: center;
         }
 
         .nav-tab.active {
-            background: linear-gradient(135deg, #8a2be2, #9370db);
-            color: white;
-            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            color: #000000;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
         }
 
-        .nav-tab:not(.active) {
-            color: #94a3b8;
+        .nav-tab:hover:not(.active) {
+            background: #2a2a2a;
+            color: #ffffff;
         }
 
-        .nav-tab:not(.active):hover {
-            background: rgba(255, 255, 255, 0.05);
-            color: #f8fafc;
-        }
-
+        /* Tab Content */
         .tab-content {
             display: none;
             animation: fadeIn 0.3s ease-in-out;
@@ -378,647 +95,686 @@
             display: block;
         }
 
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            margin: 32px 0;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .feature-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Cards */
+        .card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border: 2px solid #333;
             border-radius: 16px;
-            padding: 24px;
-            transition: all 0.3s ease;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .feature-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-align: center;
         }
 
-        .icon-wrapper {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #8a2be2, #9370db);
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            gap: 30px;
         }
 
-        .bulk-keys-container {
-            max-height: 400px;
-            overflow-y: auto;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-            padding: 16px;
-            margin-top: 16px;
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         }
 
-        .bulk-key-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            background: #0a0a0a;
+            border: 2px solid #333;
             border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 8px;
-            font-family: 'Courier New', monospace;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .key-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 12px;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        
-        .compact-key-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 8px;
+            color: #ffffff;
+            font-size: 1rem;
             transition: all 0.3s ease;
         }
 
-        .compact-key-item:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: #8a2be2;
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #ffffff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
-        .key-info-center {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;
-            gap: 1.5rem;
+        /* Buttons */
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            color: #000000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ff4444 0%, #cc3333 100%);
+            color: #ffffff;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #44ff44 0%, #33cc33 100%);
+            color: #000000;
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #333;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #cccccc;
+        }
+
+        /* Keys Table */
+        .keys-container {
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .keys-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .keys-table th,
+        .keys-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        .keys-table th {
+            background: #2a2a2a;
+            font-weight: 600;
+            color: #ffffff;
+            position: sticky;
+            top: 0;
+        }
+
+        .keys-table tr:hover {
+            background: #2a2a2a;
+        }
+
+        .status-active {
+            color: #44ff44;
+            font-weight: 600;
+        }
+
+        .status-inactive {
+            color: #ff4444;
+            font-weight: 600;
+        }
+
+        .status-unused {
+            color: #ffaa44;
+            font-weight: 600;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .nav-tab {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="floating-orb orb-1"></div>
-    <div class="floating-orb orb-2"></div>
-    <div class="floating-orb orb-3"></div>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">EON AUTH</div>
+            <div class="subtitle">#1 Reseller Panel Creator</div>
+        </div>
 
-    <div id="toast" class="toast">
-        <span id="toastMessage"></span>
-    </div>
-
-    <div id="serverStatus" class="server-status server-connected">
-        <div class="status-dot bg-purple-500"></div>
-        <span>Server Connected</span>
-    </div>
-
-    <div class="container mx-auto px-6 py-8 relative z-10">
-        <header class="text-center mb-12">
-            <h1 class="text-6xl font-bold gradient-text mb-4 animate-fade-in glow">Pluh</h1>
-            <p class="text-xl text-slate-300 mb-8 animate-slide-up">Reseller Panel</p>
-        </header>
-
+        <!-- Navigation -->
         <div class="nav-tabs">
-            <div class="nav-tab active" onclick="switchTab('generate')">
-                <i class="fas fa-key mr-2"></i>Generate Keys
-            </div>
-            <div class="nav-tab" onclick="switchTab('manage')">
-                <i class="fas fa-cogs mr-2"></i>Manage
-            </div>
-            <div class="nav-tab" onclick="switchTab('addons')">
-                <i class="fas fa-tools mr-2"></i>Addons
-            </div>
+            <button class="nav-tab active" onclick="showTab('generate')">Generate Keys</button>
+            <button class="nav-tab" onclick="showTab('manage')">Manage</button>
+            <button class="nav-tab" onclick="showTab('addons')">Addons</button>
         </div>
 
-        <div id="generate-tab" class="tab-content active">
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="icon-wrapper mb-4">
-                        <i class="fas fa-plus text-white"></i>
-                    </div>
-                    <h2 class="text-2xl font-semibold mb-6">Generate Single Key</h2>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Duration</label>
-                            <select id="duration" class="w-full select-field">
-                                <option value="1">1 Day</option>
-                                <option value="3">3 Days</option>
-                                <option value="7">1 Week</option>
-                                <option value="30">1 Month</option>
-                                <option value="90">3 Months</option>
-                                <option value="365">1 Year</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Key Prefix (Optional)</label>
-                            <input type="text" id="prefix" placeholder="e.g., PREMIUM, VIP, TRIAL" class="w-full input-field" maxlength="10">
-                        </div>
-                        <button id="generateBtn" class="w-full btn-primary">
-                            <i class="fas fa-magic mr-2"></i>Generate License Key
-                        </button>
-                    </div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="icon-wrapper mb-4">
-                        <i class="fas fa-edit text-white"></i>
-                    </div>
-                    <h2 class="text-2xl font-semibold mb-6">Custom Key Generation</h2>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Custom Key</label>
-                            <input type="text" id="customKey" placeholder="e.g., IMPACT-F5CX-65D" class="w-full input-field" maxlength="50">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Duration</label>
-                            <select id="customDuration" class="w-full select-field">
-                                <option value="1">1 Day</option>
-                                <option value="3">3 Days</option>
-                                <option value="7">1 Week</option>
-                                <option value="30">1 Month</option>
-                                <option value="90">3 Months</option>
-                                <option value="365">1 Year</option>
-                            </select>
-                        </div>
-                        <button id="generateCustomBtn" class="w-full btn-primary">
-                            <i class="fas fa-key mr-2"></i>Generate Custom Key
-                        </button>
-                    </div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="icon-wrapper mb-4">
-                        <i class="fas fa-layer-group text-white"></i>
-                    </div>
-                    <h2 class="text-2xl font-semibold mb-6">Bulk Generation</h2>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Number of Keys (Max: 100)</label>
-                            <input type="number" id="bulkCount" placeholder="Enter number of keys" class="w-full input-field" min="1" max="100" value="10">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Duration</label>
-                            <select id="bulkDuration" class="w-full select-field">
-                                <option value="1">1 Day</option>
-                                <option value="3">3 Days</option>
-                                <option value="7">1 Week</option>
-                                <option value="30">1 Month</option>
-                                <option value="90">3 Months</option>
-                                <option value="365">1 Year</option>
-                            </select>
-                        </div>
-                        <button id="bulkGenerateBtn" class="w-full btn-primary">
-                            <i class="fas fa-cubes mr-2"></i>Bulk Generate Keys
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div id="manage-tab" class="tab-content">
-            <h2 class="text-3xl font-bold gradient-text mb-6">Manage License Keys</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div class="stats-card">
-                    <div class="flex items-center justify-center">
-                        <i class="fas fa-key text-purple-500 text-3xl mr-3"></i>
-                        <span id="totalKeys" class="text-4xl font-bold">0</span>
-                    </div>
-                    <p class="text-slate-400 mt-2">Total Keys</p>
-                </div>
-                <div class="stats-card">
-                    <div class="flex items-center justify-center">
-                        <i class="fas fa-unlock text-yellow-500 text-3xl mr-3"></i>
-                        <span id="unusedKeys" class="text-4xl font-bold">0</span>
-                    </div>
-                    <p class="text-slate-400 mt-2">Unused Keys</p>
-                </div>
-                <div class="stats-card">
-                    <div class="flex items-center justify-center">
-                        <i class="fas fa-check-circle text-blue-500 text-3xl mr-3"></i>
-                        <span id="activeKeys" class="text-4xl font-bold">0</span>
-                    </div>
-                    <p class="text-slate-400 mt-2">Active Keys</p>
-                </div>
-            </div>
-            <div class="flex justify-between items-center mb-4">
-                <div class="flex items-center space-x-2">
-                    <input type="text" id="filterInput" placeholder="Filter by key or status" class="input-field max-w-xs">
-                    <div class="relative inline-block">
-                        <select id="sortSelect" class="select-field pr-8">
-                            <option value="status">Status</option>
-                            <option value="creationDate">Creation Date</option>
-                            <option value="expiryDate">Expiry Date</option>
+        <!-- Generate Keys Tab -->
+        <div id="generate" class="tab-content active">
+            <div class="grid grid-2">
+                <!-- Single Key Generation -->
+                <div class="card">
+                    <h2>Generate Single Key</h2>
+                    <div class="form-group">
+                        <label class="form-label">Duration</label>
+                        <select class="form-select" id="singleDuration">
+                            <option value="1">1 Day</option>
+                            <option value="3">3 Days</option>
+                            <option value="7">1 Week</option>
+                            <option value="30">1 Month</option>
+                            <option value="365">1 Year</option>
                         </select>
                     </div>
-                    <button onclick="sortKeys()" class="btn-secondary">
-                        <i class="fas fa-sort mr-2"></i>Sort
-                    </button>
+                    <button class="btn btn-primary btn-full" onclick="generateSingleKey()">Generate Key</button>
                 </div>
-                <div>
-                    <button onclick="downloadAllKeys()" class="btn-purple mr-2">
-                        <i class="fas fa-download mr-2"></i>Download All
-                    </button>
-                    <button onclick="deleteAllKeys()" class="btn-purple bg-red-600 hover:bg-red-700">
-                        <i class="fas fa-trash-alt mr-2"></i>Delete All
-                    </button>
+
+                <!-- Bulk Generation -->
+                <div class="card">
+                    <h2>Generate Bulk Keys</h2>
+                    <div class="form-group">
+                        <label class="form-label">Number of Keys (Max 50)</label>
+                        <input type="number" class="form-input" id="bulkCount" min="1" max="50" value="5">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Duration</label>
+                        <select class="form-select" id="bulkDuration">
+                            <option value="1">1 Day</option>
+                            <option value="3">3 Days</option>
+                            <option value="7">1 Week</option>
+                            <option value="30">1 Month</option>
+                            <option value="365">1 Year</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary btn-full" onclick="generateBulkKeys()">Generate Bulk Keys</button>
                 </div>
             </div>
-            
-            <div id="keys-container" class="space-y-4">
-                </div>
-        </div>
 
-        <div id="addons-tab" class="tab-content">
-            <h2 class="text-3xl font-bold gradient-text mb-6">Addons</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="glass-card p-6">
-                    <div class="icon-wrapper mb-4">
-                        <i class="fas fa-history text-white"></i>
+            <!-- Custom Key Generation -->
+            <div class="card">
+                <h2>Generate Custom Key</h2>
+                <div class="grid grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Custom Key Format</label>
+                        <input type="text" class="form-input" id="customKey" placeholder="EON-XXXXX-XXXXX" value="EON-">
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Extend Key</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Key or ALL Keys</label>
-                            <input type="text" id="extendKeyInput" placeholder="Enter key or type 'ALL'" class="w-full input-field">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Days to Add</label>
-                            <input type="number" id="extendDays" placeholder="Enter days" class="w-full input-field" min="1">
-                        </div>
-                        <button id="extendKeyBtn" class="w-full btn-primary">
-                            <i class="fas fa-plus-circle mr-2"></i>Extend Key(s)
-                        </button>
+                    <div class="form-group">
+                        <label class="form-label">Duration (Days)</label>
+                        <input type="number" class="form-input" id="customDuration" min="1" value="30">
                     </div>
                 </div>
-
-                <div class="glass-card p-6">
-                    <div class="icon-wrapper mb-4">
-                        <i class="fas fa-sync-alt text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">HWID Management</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Key to Reset HWID</label>
-                            <input type="text" id="resetHwidKeyInput" placeholder="Enter key" class="w-full input-field">
-                        </div>
-                        <button id="resetHwidBtn" class="w-full btn-primary">
-                            <i class="fas fa-redo-alt mr-2"></i>Reset HWID
-                        </button>
-                    </div>
-                </div>
-
-                <div class="glass-card p-6">
-                    <div class="icon-wrapper mb-4">
-                        <i class="fas fa-check-circle text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Verify & Use Key</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-slate-300">Key to Verify</label>
-                            <input type="text" id="verifyKeyInput" placeholder="Enter key to verify" class="w-full input-field">
-                        </div>
-                        <button id="verifyKeyBtn" class="w-full btn-primary">
-                            <i class="fas fa-check mr-2"></i>Verify Key
-                        </button>
-                    </div>
-                </div>
+                <button class="btn btn-primary btn-full" onclick="generateCustomKey()">Generate Custom Key</button>
             </div>
         </div>
 
-        <footer class="mt-12 text-center text-slate-500 text-sm">
-            <p>&copy; 2024 Pluh. All rights reserved.</p>
-        </footer>
+        <!-- Manage Tab -->
+        <div id="manage" class="tab-content">
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalKeys">0</div>
+                    <div class="stat-label">Total Keys</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="activeKeys">0</div>
+                    <div class="stat-label">Active Keys</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="unusedKeys">0</div>
+                    <div class="stat-label">Unused Keys</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="expiredKeys">0</div>
+                    <div class="stat-label">Expired Keys</div>
+                </div>
+            </div>
+
+            <!-- Keys List -->
+            <div class="card">
+                <h2>All Keys</h2>
+                <div class="keys-container">
+                    <table class="keys-table">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Status</th>
+                                <th>Duration</th>
+                                <th>HWID</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="keysTableBody">
+                            <!-- Keys will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Addons Tab -->
+        <div id="addons" class="tab-content">
+            <div class="grid grid-2">
+                <!-- HWID Management -->
+                <div class="card">
+                    <h2>HWID Management</h2>
+                    <div class="form-group">
+                        <label class="form-label">Key to Reset HWID</label>
+                        <input type="text" class="form-input" id="hwidKey" placeholder="Enter key...">
+                    </div>
+                    <button class="btn btn-danger btn-full" onclick="resetHWID()">Reset HWID</button>
+                </div>
+
+                <!-- Key Extension -->
+                <div class="card">
+                    <h2>Extend Key Duration</h2>
+                    <div class="form-group">
+                        <label class="form-label">Key to Extend</label>
+                        <input type="text" class="form-input" id="extendKey" placeholder="Enter key or 'ALL' for all active keys">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Additional Days</label>
+                        <input type="number" class="form-input" id="extendDays" min="1" value="30">
+                    </div>
+                    <button class="btn btn-success btn-full" onclick="extendKey()">Extend Key</button>
+                </div>
+            </div>
+
+            <!-- Bulk Operations -->
+            <div class="card">
+                <h2>Bulk Operations</h2>
+                <div class="grid grid-3">
+                    <button class="btn btn-secondary" onclick="exportKeys()">Export All Keys</button>
+                    <button class="btn btn-secondary" onclick="clearExpiredKeys()">Clear Expired Keys</button>
+                    <button class="btn btn-danger" onclick="clearAllKeys()">Clear All Keys</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Mock data and API functions
-        let keys = JSON.parse(localStorage.getItem('pluhKeys')) || [];
+        // Global variables
+        let keys = JSON.parse(localStorage.getItem('eonAuthKeys') || '[]');
 
-        function showToast(message, isError = false) {
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toastMessage');
-            toastMessage.textContent = message;
-            toast.classList.remove('error', 'show');
-            if (isError) {
-                toast.classList.add('error');
-            }
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                showToast('Copied to clipboard!');
-            }).catch(err => {
-                showToast('Failed to copy text.', true);
-                console.error('Failed to copy text: ', err);
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
             });
-        }
-
-        function generateLicenseKey(duration, prefix = '') {
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let key = '';
-            for (let i = 0; i < 4; i++) {
-                for (let j = 0; j < 4; j++) {
-                    key += characters.charAt(Math.floor(Math.random() * characters.length));
-                }
-                if (i < 3) key += '-';
+            
+            // Remove active class from all nav tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked nav tab
+            event.target.classList.add('active');
+            
+            // Update manage tab if it's selected
+            if (tabName === 'manage') {
+                updateManageTab();
             }
-            const fullKey = prefix ? `${prefix}-${key}` : key;
-            const newKey = {
-                key: fullKey,
-                duration: duration,
-                creationDate: moment().toISOString(),
-                expiryDate: moment().add(duration, 'days').toISOString(),
-                status: 'unused',
-                info: ''
-            };
-            keys.push(newKey);
-            localStorage.setItem('pluhKeys', JSON.stringify(keys));
-            displayKeys(keys);
-            updateStats();
-            showToast('Key generated successfully!');
-            return fullKey;
         }
 
-        function createCustomKey(customKey, duration) {
+        // Generate random key
+        function generateRandomKey(prefix = 'EON') {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = prefix + '-';
+            
+            for (let i = 0; i < 2; i++) {
+                for (let j = 0; j < 5; j++) {
+                    result += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                if (i < 1) result += '-';
+            }
+            
+            return result;
+        }
+
+        // Generate single key
+        function generateSingleKey() {
+            const duration = parseInt(document.getElementById('singleDuration').value);
+            const key = generateRandomKey();
+            
             const newKey = {
+                id: Date.now(),
+                key: key,
+                duration: duration,
+                status: 'unused',
+                hwid: null,
+                created: new Date().toISOString(),
+                expires: new Date(Date.now() + duration * 24 * 60 * 60 * 1000).toISOString()
+            };
+            
+            keys.push(newKey);
+            saveKeys();
+            
+            alert(`Generated Key: ${key}\nDuration: ${duration} day(s)`);
+        }
+
+        // Generate bulk keys
+        function generateBulkKeys() {
+            const count = parseInt(document.getElementById('bulkCount').value);
+            const duration = parseInt(document.getElementById('bulkDuration').value);
+            
+            if (count > 50) {
+                alert('Maximum 50 keys allowed for bulk generation');
+                return;
+            }
+            
+            const generatedKeys = [];
+            
+            for (let i = 0; i < count; i++) {
+                const key = generateRandomKey();
+                const newKey = {
+                    id: Date.now() + i,
+                    key: key,
+                    duration: duration,
+                    status: 'unused',
+                    hwid: null,
+                    created: new Date().toISOString(),
+                    expires: new Date(Date.now() + duration * 24 * 60 * 60 * 1000).toISOString()
+                };
+                
+                keys.push(newKey);
+                generatedKeys.push(key);
+            }
+            
+            saveKeys();
+            alert(`Generated ${count} keys with ${duration} day(s) duration`);
+        }
+
+        // Generate custom key
+        function generateCustomKey() {
+            const customKey = document.getElementById('customKey').value.trim();
+            const duration = parseInt(document.getElementById('customDuration').value);
+            
+            if (!customKey) {
+                alert('Please enter a custom key format');
+                return;
+            }
+            
+            // Check if key already exists
+            if (keys.find(k => k.key === customKey)) {
+                alert('Key already exists!');
+                return;
+            }
+            
+            const newKey = {
+                id: Date.now(),
                 key: customKey,
                 duration: duration,
-                creationDate: moment().toISOString(),
-                expiryDate: moment().add(duration, 'days').toISOString(),
                 status: 'unused',
-                info: ''
+                hwid: null,
+                created: new Date().toISOString(),
+                expires: new Date(Date.now() + duration * 24 * 60 * 60 * 1000).toISOString()
             };
+            
             keys.push(newKey);
-            localStorage.setItem('pluhKeys', JSON.stringify(keys));
-            displayKeys(keys);
-            updateStats();
-            showToast('Custom key generated successfully!');
+            saveKeys();
+            
+            alert(`Generated Custom Key: ${customKey}\nDuration: ${duration} day(s)`);
         }
 
-        function generateBulkKeys(count, duration) {
-            const generatedKeys = [];
-            for (let i = 0; i < count; i++) {
-                generatedKeys.push(generateLicenseKey(duration));
-            }
-            showToast(`${count} keys generated successfully!`);
-            return generatedKeys;
-        }
-
-        function displayKeys(keysToDisplay) {
-            const container = document.getElementById('keys-container');
-            container.innerHTML = '';
-            if (keysToDisplay.length === 0) {
-                container.innerHTML = '<p class="text-center text-slate-500">No license keys found.</p>';
+        // Reset HWID
+        function resetHWID() {
+            const keyToReset = document.getElementById('hwidKey').value.trim();
+            
+            if (!keyToReset) {
+                alert('Please enter a key');
                 return;
             }
-            keysToDisplay.forEach(key => {
-                const statusBadge = `<span class="status-badge status-${key.status}">${key.status}</span>`;
-                const expiryDate = moment(key.expiryDate).format('YYYY-MM-DD HH:mm:ss');
-                const keyItem = document.createElement('div');
-                keyItem.classList.add('key-item');
-                keyItem.innerHTML = `
-                    <div class="flex items-center justify-between w-full">
-                        <button onclick="copyToClipboard('${key.key}')" class="key-display flex-grow mr-4 text-left">${key.key}</button>
-                        <div class="flex items-center space-x-2">
-                            ${statusBadge}
-                            <span class="text-slate-400 text-sm">Expires: ${expiryDate}</span>
-                            <div class="relative group">
-                                <button onclick="deleteKey('${key.key}')" class="btn-purple bg-red-600 hover:bg-red-700 text-xs p-2">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                                <span class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block px-2 py-1 bg-gray-700 text-white text-xs rounded-lg whitespace-nowrap">Delete</span>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(keyItem);
-            });
-        }
-
-        function updateStats() {
-            const totalKeys = keys.length;
-            const unusedKeys = keys.filter(k => k.status === 'unused').length;
-            const activeKeys = keys.filter(k => k.status === 'active' || k.status === 'used').length;
-            document.getElementById('totalKeys').textContent = totalKeys;
-            document.getElementById('unusedKeys').textContent = unusedKeys;
-            document.getElementById('activeKeys').textContent = activeKeys;
-        }
-
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
-            document.getElementById(`${tabId}-tab`).classList.add('active');
-            document.querySelector(`.nav-tab[onclick="switchTab('${tabId}')"]`).classList.add('active');
-            if (tabId === 'manage') {
-                displayKeys(keys);
-                updateStats();
+            
+            const keyIndex = keys.findIndex(k => k.key === keyToReset);
+            
+            if (keyIndex === -1) {
+                alert('Key not found!');
+                return;
             }
+            
+            keys[keyIndex].hwid = null;
+            keys[keyIndex].status = 'unused';
+            saveKeys();
+            
+            alert(`HWID reset for key: ${keyToReset}`);
+            document.getElementById('hwidKey').value = '';
         }
 
-        function updateServerStatus() {
-            const statusDiv = document.getElementById('serverStatus');
-            const statusDot = statusDiv.querySelector('.status-dot');
-            const statusText = statusDiv.querySelector('span');
-
-            // Mock server status - can be replaced with real API call
-            const isConnected = Math.random() > 0.1;
-
-            if (isConnected) {
-                statusDiv.classList.remove('server-offline');
-                statusDiv.classList.add('server-connected');
-                statusDot.classList.remove('bg-red-500');
-                statusDot.classList.add('bg-purple-500');
-                statusText.textContent = 'Server Connected';
+        // Extend key
+        function extendKey() {
+            const keyToExtend = document.getElementById('extendKey').value.trim();
+            const additionalDays = parseInt(document.getElementById('extendDays').value);
+            
+            if (!keyToExtend) {
+                alert('Please enter a key or "ALL"');
+                return;
+            }
+            
+            if (keyToExtend.toUpperCase() === 'ALL') {
+                // Extend all active keys
+                const activeKeys = keys.filter(k => k.status === 'active');
+                activeKeys.forEach(key => {
+                    const currentExpiry = new Date(key.expires);
+                    key.expires = new Date(currentExpiry.getTime() + additionalDays * 24 * 60 * 60 * 1000).toISOString();
+                    key.duration += additionalDays;
+                });
+                
+                saveKeys();
+                alert(`Extended ${activeKeys.length} active keys by ${additionalDays} days`);
             } else {
-                statusDiv.classList.remove('server-connected');
-                statusDiv.classList.add('server-offline');
-                statusDot.classList.remove('bg-purple-500');
-                statusDot.classList.add('bg-red-500');
-                statusText.textContent = 'Server Offline';
-            }
-        }
-
-        document.getElementById('generateBtn').addEventListener('click', () => {
-            const duration = document.getElementById('duration').value;
-            const prefix = document.getElementById('prefix').value;
-            generateLicenseKey(duration, prefix);
-        });
-
-        document.getElementById('generateCustomBtn').addEventListener('click', () => {
-            const customKey = document.getElementById('customKey').value;
-            const customDuration = document.getElementById('customDuration').value;
-            if (customKey.trim() === '') {
-                showToast('Custom key cannot be empty!', true);
-                return;
-            }
-            createCustomKey(customKey, customDuration);
-        });
-
-        document.getElementById('bulkGenerateBtn').addEventListener('click', () => {
-            const count = document.getElementById('bulkCount').value;
-            const duration = document.getElementById('bulkDuration').value;
-            if (count < 1 || count > 100) {
-                showToast('Number of keys must be between 1 and 100.', true);
-                return;
-            }
-            generateBulkKeys(count, duration);
-        });
-
-        document.getElementById('filterInput').addEventListener('input', (e) => {
-            const filterText = e.target.value.toLowerCase();
-            const filteredKeys = keys.filter(key => 
-                key.key.toLowerCase().includes(filterText) ||
-                key.status.toLowerCase().includes(filterText)
-            );
-            displayKeys(filteredKeys);
-        });
-
-        function sortKeys() {
-            const sortValue = document.getElementById('sortSelect').value;
-            let sortedKeys = [...keys];
-            if (sortValue === 'status') {
-                sortedKeys.sort((a, b) => a.status.localeCompare(b.status));
-            } else if (sortValue === 'creationDate') {
-                sortedKeys.sort((a, b) => moment(b.creationDate).valueOf() - moment(a.creationDate).valueOf());
-            } else if (sortValue === 'expiryDate') {
-                sortedKeys.sort((a, b) => moment(a.expiryDate).valueOf() - moment(b.expiryDate).valueOf());
-            }
-            displayKeys(sortedKeys);
-        }
-
-        function deleteKey(keyToDelete) {
-            keys = keys.filter(key => key.key !== keyToDelete);
-            localStorage.setItem('pluhKeys', JSON.stringify(keys));
-            displayKeys(keys);
-            updateStats();
-            showToast(`Key "${keyToDelete}" deleted.`);
-        }
-
-        function deleteAllKeys() {
-            if (confirm('Are you sure you want to delete all keys? This action cannot be undone.')) {
-                keys = [];
-                localStorage.setItem('pluhKeys', JSON.stringify(keys));
-                displayKeys(keys);
-                updateStats();
-                showToast('All keys have been deleted.');
-            }
-        }
-
-        function extendKey(keyToExtend, days) {
-            const key = keys.find(k => k.key === keyToExtend);
-            if (key) {
-                key.expiryDate = moment(key.expiryDate).add(days, 'days').toISOString();
-                localStorage.setItem('pluhKeys', JSON.stringify(keys));
-                displayKeys(keys);
-                showToast(`Key "${keyToExtend}" extended by ${days} days.`);
-            } else {
-                showToast(`Key "${keyToExtend}" not found!`, true);
-            }
-        }
-
-        function extendAllKeys(days) {
-            keys.forEach(key => {
-                key.expiryDate = moment(key.expiryDate).add(days, 'days').toISOString();
-            });
-            localStorage.setItem('pluhKeys', JSON.stringify(keys));
-            displayKeys(keys);
-            showToast(`All keys extended by ${days} days.`);
-        }
-
-        document.getElementById('extendKeyBtn').addEventListener('click', () => {
-            const keyOrAll = document.getElementById('extendKeyInput').value.trim().toUpperCase();
-            const daysToAdd = parseInt(document.getElementById('extendDays').value, 10);
-
-            if (isNaN(daysToAdd) || daysToAdd <= 0) {
-                showToast('Please enter a valid number of days.', true);
-                return;
-            }
-
-            if (keyOrAll === 'ALL') {
-                extendAllKeys(daysToAdd);
-            } else {
-                extendKey(keyOrAll, daysToAdd);
-            }
-        });
-
-        function resetHWID(keyToReset) {
-            const key = keys.find(k => k.key === keyToReset);
-            if (key) {
-                // In a real application, you would make an API call here to reset the HWID.
-                // For this mock, we'll just show a toast message.
-                showToast(`HWID for key "${keyToReset}" has been reset!`);
-            } else {
-                showToast(`Key "${keyToReset}" not found!`, true);
-            }
-        }
-
-        document.getElementById('resetHwidBtn').addEventListener('click', () => {
-            const keyToReset = document.getElementById('resetHwidKeyInput').value.trim();
-            if (keyToReset === '') {
-                showToast('Please enter a key to reset HWID.', true);
-                return;
-            }
-            resetHWID(keyToReset);
-        });
-
-        // New function to call the use-key API endpoint
-        function verifyKey() {
-            const keyToVerify = document.getElementById('verifyKeyInput').value.trim();
-            if (keyToVerify === '') {
-                showToast('Please enter a key to verify.', true);
-                return;
-            }
-
-            fetch('http://localhost:3000/api/use-key', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ key: keyToVerify }),
-            })
-            .then(response => response.json().then(data => ({ status: response.status, body: data })))
-            .then(({ status, body }) => {
-                if (body.success) {
-                    // Update key status locally on success
-                    const localKey = keys.find(k => k.key === keyToVerify);
-                    if (localKey) {
-                        localKey.status = 'used';
-                        localStorage.setItem('pluhKeys', JSON.stringify(keys));
-                        displayKeys(keys);
-                        updateStats();
-                    }
-                    showToast(body.message);
-                } else {
-                    showToast(body.message, true);
+                // Extend specific key
+                const keyIndex = keys.findIndex(k => k.key === keyToExtend);
+                
+                if (keyIndex === -1) {
+                    alert('Key not found!');
+                    return;
                 }
-            })
-            .catch(error => {
-                console.error('Error verifying key:', error);
-                showToast('Error verifying key. Please check the server.', true);
+                
+                const currentExpiry = new Date(keys[keyIndex].expires);
+                keys[keyIndex].expires = new Date(currentExpiry.getTime() + additionalDays * 24 * 60 * 60 * 1000).toISOString();
+                keys[keyIndex].duration += additionalDays;
+                
+                saveKeys();
+                alert(`Extended key ${keyToExtend} by ${additionalDays} days`);
+            }
+            
+            document.getElementById('extendKey').value = '';
+        }
+
+        // Update manage tab
+        function updateManageTab() {
+            const now = new Date();
+            const activeKeys = keys.filter(k => k.status === 'active' && new Date(k.expires) > now);
+            const unusedKeys = keys.filter(k => k.status === 'unused');
+            const expiredKeys = keys.filter(k => new Date(k.expires) <= now);
+            
+            document.getElementById('totalKeys').textContent = keys.length;
+            document.getElementById('activeKeys').textContent = activeKeys.length;
+            document.getElementById('unusedKeys').textContent = unusedKeys.length;
+            document.getElementById('expiredKeys').textContent = expiredKeys.length;
+            
+            // Populate keys table
+            const tbody = document.getElementById('keysTableBody');
+            tbody.innerHTML = '';
+            
+            keys.forEach(key => {
+                const row = document.createElement('tr');
+                const isExpired = new Date(key.expires) <= now;
+                const status = isExpired ? 'expired' : key.status;
+                
+                row.innerHTML = `
+                    <td>${key.key}</td>
+                    <td><span class="status-${status}">${status.toUpperCase()}</span></td>
+                    <td>${key.duration} days</td>
+                    <td>${key.hwid || 'Not bound'}</td>
+                    <td>${new Date(key.created).toLocaleDateString()}</td>
+                    <td>
+                        <button class="btn btn-danger" style="padding: 5px 10px; font-size: 0.8rem;" onclick="deleteKey('${key.key}')">Delete</button>
+                    </td>
+                `;
+                
+                tbody.appendChild(row);
             });
         }
-        
-        document.getElementById('verifyKeyBtn').addEventListener('click', verifyKey);
 
-        document.addEventListener('DOMContentLoaded', () => {
-            updateServerStatus();
+        // Delete key
+        function deleteKey(keyToDelete) {
+            if (confirm(`Are you sure you want to delete key: ${keyToDelete}?`)) {
+                keys = keys.filter(k => k.key !== keyToDelete);
+                saveKeys();
+                updateManageTab();
+            }
+        }
+
+        // Export keys
+        function exportKeys() {
+            const dataStr = JSON.stringify(keys, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = 'eon_auth_keys.json';
+            link.click();
+        }
+
+        // Clear expired keys
+        function clearExpiredKeys() {
+            const now = new Date();
+            const expiredCount = keys.filter(k => new Date(k.expires) <= now).length;
+            
+            if (confirm(`Delete ${expiredCount} expired keys?`)) {
+                keys = keys.filter(k => new Date(k.expires) > now);
+                saveKeys();
+                updateManageTab();
+                alert(`Deleted ${expiredCount} expired keys`);
+            }
+        }
+
+        // Clear all keys
+        function clearAllKeys() {
+            if (confirm('Are you sure you want to delete ALL keys? This action cannot be undone!')) {
+                if (confirm('This will permanently delete all keys. Continue?')) {
+                    keys = [];
+                    saveKeys();
+                    updateManageTab();
+                    alert('All keys deleted');
+                }
+            }
+        }
+
+        // Save keys to localStorage
+        function saveKeys() {
+            localStorage.setItem('eonAuthKeys', JSON.stringify(keys));
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulate some keys being active
+            keys.forEach(key => {
+                if (Math.random() > 0.7 && key.status === 'unused') {
+                    key.status = 'active';
+                    key.hwid = 'HWID-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+                }
+            });
+            
+            updateManageTab();
         });
     </script>
 </body>
